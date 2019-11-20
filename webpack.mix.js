@@ -20,4 +20,5 @@ const mix = require('laravel-mix');
     全画面がオレンジ色に！！
   */
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/nav.scss', 'public/css');

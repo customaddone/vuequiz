@@ -1,7 +1,7 @@
 @extends('layouts.layouts')
 
 @section('content')
-
-    <p>こんにちは！</p>
+    @component('components.navbar')
+    @endcomponent
 
 @endsection

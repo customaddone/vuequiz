@@ -16,10 +16,10 @@ class TDDTest extends TestCase
     public function testExample()
     {
         /*
-          素早く実装　→　テストが通る
-          test以下の全てのファイルがテストされるのでExampleTestは消しとこうね
+          home画面をリファクタリング
+          css弄ってるだけなのでもちろんテストは通る
         */
-        $response = $this->get('/home');
+        $response = $this->get('/');
 
         $response->assertStatus(200);
     }

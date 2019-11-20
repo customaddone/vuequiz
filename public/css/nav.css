@@ -1,0 +1,50 @@
+.navbar {
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  list-style: none;
+}
+
+.navbar li {
+  list-style: none;
+  float: left;
+  margin-right: 15px;
+}
+
+.navbar .gradient h1 {
+  font-size: 36px;
+  color: #fdfdfd;
+  font-weight: bold;
+}
+
+.navbar .gradient p {
+  color: #fdfdfd;
+}
+
+.navbar .center {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.navbar .left {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-right: auto;
+}
+
+.navbar .right {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-left: auto;
+}
+
+.navbar .shadow {
+  box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.6);
+}
+

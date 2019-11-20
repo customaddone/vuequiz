@@ -1,17 +1,63 @@
-// いつものようにnpm install
-// 今回はsassを使いましょう
-$background-color: #ffdab9;
-$color: #0000DD;
-$margin: 10px 20px 30px 40px;
+@import 'nav.scss';
 
-body {
-  background-color: $background-color;
+// 背景色
+$primary-color: #1e87f0;
+$gradient-first: #84fab0;
+$gradient-second: #8fd3f4;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+
 }
 
 p {
-  color: $color;
+  font-size: 16px;
 }
 
-.test-margin {
-  margin: $margin;
+.back-primary-color {
+  background-color: $primary-color;
+}
+
+.back-primary-color-gradient {
+   background:linear-gradient(to right, $gradient-first, $gradient-second);
+}
+
+.container {
+    box-sizing: content-box;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right:15px
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 30px;
+        padding-right:30px
+    }
+}
+
+@media (min-width: 960px) {
+    .uk-container {
+        padding-left: 40px;
+        padding-right:40px
+    }
+}
+
+.section {
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom:15px
+}
+
+@media (min-width: 960px) {
+    .section {
+        padding-top: 15px;
+        padding-bottom:15px
+    }
 }
