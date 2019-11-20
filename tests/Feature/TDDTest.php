@@ -16,12 +16,8 @@ class TDDTest extends TestCase
     public function testExample()
     {
         /*
-          テスト開発駆動
-          １　TODOリストから実装する機能を決める
-          ２　テストを書く
-          ３　失敗する
-          ４　素早く機能を実装する
-          ５　リファクタリング
+          素早く実装　→　テストが通る
+          test以下の全てのファイルがテストされるのでExampleTestは消しとこうね
         */
         $response = $this->get('/home');
 
