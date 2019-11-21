@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
+
     <!-- Headタグ内に足す -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -12,8 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue-router@3.0.1"></script>
 
-    <!-- Scss（全ページ共通）-->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     @yield('content')

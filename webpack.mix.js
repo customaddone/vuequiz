@@ -19,8 +19,4 @@ const mix = require('laravel-mix');
     ⑥ ビューに<link href="{{ asset('css/app.css') }}" rel="stylesheet">を追加
     全画面がオレンジ色に！！
   */
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/primary.scss', 'public/css')
-    .sass('resources/sass/item.scss', 'public/css')
-    .sass('resources/sass/nav.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js');
