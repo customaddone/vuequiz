@@ -4,4 +4,12 @@
     @component('components.navbar')
     @endcomponent
 
+    <div class="container">
+        <div class="section">
+            <div class="card">
+                あ
+            </div>
+        </div>
+    </div>
+
 @endsection

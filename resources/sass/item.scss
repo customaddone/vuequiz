@@ -1,0 +1,42 @@
+// こんな感じでscssを作っていきましょう
+
+.card {
+    position: relative;
+    box-sizing: border-box;
+    transition:box-shadow .1s ease-in-out;
+
+    .card-primary {
+        background-color: #333;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .card-header {
+        padding: 15px 30px;
+    }
+
+    .card-footer {
+        padding: 15px 30px;
+    }
+
+    @media (min-width: 1200px) {
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-header {
+            padding: 15px 30px;
+        }
+
+        .card-footer {
+            padding: 15px 30px;
+        }
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+}

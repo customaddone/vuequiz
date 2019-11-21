@@ -1,29 +1,23 @@
+@import 'primary.scss';
 @import 'nav.scss';
+@import 'item.scss';
 
 // 背景色
 $primary-color: #1e87f0;
 $gradient-first: #84fab0;
 $gradient-second: #8fd3f4;
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-
-}
-
-p {
-  font-size: 16px;
-}
 
 .back-primary-color {
-  background-color: $primary-color;
+    background-color: $primary-color;
 }
 
 .back-primary-color-gradient {
-   background:linear-gradient(to right, $gradient-first, $gradient-second);
+    background:linear-gradient(to right, $gradient-first, $gradient-second);
+}
+
+.border-rounded {
+    border-radius: 5px;
 }
 
 .container {
@@ -43,7 +37,7 @@ p {
 }
 
 @media (min-width: 960px) {
-    .uk-container {
+    .container {
         padding-left: 40px;
         padding-right:40px
     }
