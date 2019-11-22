@@ -16,8 +16,20 @@
                     </div>
                 </div>
                 <div class="uk-card-body">
-                    <input name="addvalue"　class="uk-input uk-width-2-3"　type="text" placeholder="・Add Task">
+                    <input name="addvalue" class="uk-input uk-width-2-3"　type="text" placeholder="・Add Task">
                     <button name="addbutton" class="uk-button uk-button-primary uk-float-right uk-border-rounded">ADD</button>
+                </div>
+                <div>
+                    <ul class="uk-list uk-list-striped" uk-accordion>
+                        <li class="">
+                            <a uk-icon="icon: pencil; ratio: 1.5" class="uk-margin-left uk-logo uk-float-right">
+                            <a uk-icon="icon: trash; ratio: 1.5" class="uk-margin-left uk-logo uk-float-right">
+                            <a class="uk-accordion-title" href="#">・Item 1</a>
+                            <div class="uk-accordion-content">
+                                <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

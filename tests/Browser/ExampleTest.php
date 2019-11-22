@@ -16,15 +16,13 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　duskを使ってブラウザテスト
-          name="addvalue"のフィールドにhelloを打ち、name="addbutton"のボタンを押す
-          helloという文字が...出てこないですね
+        　SPAに移行前
+         「Task List」「Item 1」共に見える
         */
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->type('addvalue', 'hello')
-                    ->press('addbutton')
-                    ->assertSee('hello');
+                    ->assertSee('Task List')
+                    ->assertSee('Item 1');
         });
     }
 }
