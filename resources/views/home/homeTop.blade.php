@@ -6,7 +6,7 @@
 
 　　 <div class="uk-container">
         <div class="uk-section-xsmall">
-            <div class="uk-card uk-card-default uk-width-1-2@m">
+            <div class="uk-card uk-card-default uk-border-rounded">
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
@@ -16,10 +16,8 @@
                     </div>
                 </div>
                 <div class="uk-card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                    <input name="addvalue"　class="uk-input uk-width-2-3"　type="text" placeholder="・Add Task">
+                    <button name="addbutton" class="uk-button uk-button-primary uk-float-right uk-border-rounded">ADD</button>
                 </div>
             </div>
         </div>

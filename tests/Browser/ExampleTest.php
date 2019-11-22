@@ -15,9 +15,16 @@ class ExampleTest extends DuskTestCase
      */
     public function testBasicExample()
     {
+        /*
+        　duskを使ってブラウザテスト
+          name="addvalue"のフィールドにhelloを打ち、name="addbutton"のボタンを押す
+          helloという文字が...出てこないですね
+        */
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('Laravel');
+                    ->type('addvalue', 'hello')
+                    ->press('addbutton')
+                    ->assertSee('hello');
         });
     }
 }
