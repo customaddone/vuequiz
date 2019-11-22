@@ -16,13 +16,13 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　SPAに移行後
-         しっかりLaravelもItem 1も見える
+        　アイテムの名前を記入　→　下のリストに表示
         */
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('Laravel')
-                    ->assertSee('Item 1');
+                    ->type('addvalue', 'hello')
+                    ->press('addbutton')
+                    ->assertSee('hello');
         });
     }
 }
