@@ -16,12 +16,12 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　SPAに移行前
-         「Task List」「Item 1」共に見える
+        　SPAに移行後
+         しっかりLaravelもItem 1も見える
         */
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('Task List')
+                    ->assertSee('Laravel')
                     ->assertSee('Item 1');
         });
     }
