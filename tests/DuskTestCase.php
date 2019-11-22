@@ -19,7 +19,7 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        static::startChromeDriver();
+         // static::startChromeDriver();
     }
 
 
@@ -29,9 +29,15 @@ abstract class DuskTestCase extends BaseTestCase
      * @return \Facebook\WebDriver\Remote\RemoteWebDriver
      */
     /*
-        Laravel dusk
         ①　composer require --dev laravel/dusk
         ②　php artisan dusk:install
+        ③ laravelの.envを.env.dusk.localの名前でコピー
+        　 APP_URL=http://nginx　にする
+        ④ docker-compose up -d nginx mysql selenium する
+        ⑤ src/tests/DuskTestCase.php の　return RemoteWebDriver::create　の部分
+        　 第一引数を 'http://selenium:4444/wd/hub' にする
+        ⑥ Browser/ExampleTest.php にテストを書く
+        ⑦ php artisan dusk
     */
     protected function driver()
     {
@@ -42,7 +48,7 @@ abstract class DuskTestCase extends BaseTestCase
         ]);
 
         return RemoteWebDriver::create(
-            'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
+            'http://selenium:4444/wd/hub', DesiredCapabilities::chrome()->setCapability(
                 ChromeOptions::CAPABILITY, $options
             )
         );

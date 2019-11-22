@@ -10,7 +10,7 @@
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Laravel</h3>
                             <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
                         </div>
                     </div>

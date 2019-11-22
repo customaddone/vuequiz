@@ -15,10 +15,6 @@ class TDDTest extends TestCase
      */
     public function testExample()
     {
-        /*
-          home画面をリファクタリング
-          css弄ってるだけなのでもちろんテストは通る
-        */
         $response = $this->get('/');
 
         $response->assertStatus(200);
