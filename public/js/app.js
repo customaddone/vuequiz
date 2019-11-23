@@ -1878,6 +1878,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1889,7 +1906,7 @@ __webpack_require__.r(__webpack_exports__);
     this.indexItems();
   },
   methods: {
-    // アイテムの追加、削除
+    // アイテムの追加、編集、削除
     indexItems: function indexItems() {
       var _this = this;
 
@@ -1911,11 +1928,22 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       });
     },
-    deleteItem: function deleteItem(id) {
+    editItem: function editItem(id, name) {
       var _this3 = this;
 
-      axios["delete"]('/api/items/' + id).then(function () {
+      axios.post('/api/items/' + id, {
+        item_name: name
+      }).then(function (response) {
         _this3.indexItems();
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    deleteItem: function deleteItem(id) {
+      var _this4 = this;
+
+      axios["delete"]('/api/items/' + id).then(function () {
+        _this4.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
@@ -19358,8 +19386,81 @@ var render = function() {
                 _vm._v(" "),
                 _c("button", {
                   staticClass: "uk-margin-left uk-logo uk-float-right",
-                  attrs: { dusk: "edit", "uk-icon": "icon: pencil; ratio: 1.5" }
+                  attrs: {
+                    dusk: "edit",
+                    "uk-toggle": "target: #item-edit",
+                    "uk-icon": "icon: pencil; ratio: 1.5"
+                  }
                 }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal",
+                    attrs: { id: "item-edit", "uk-modal": "" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "uk-modal-dialog uk-modal-body" },
+                      [
+                        _c("h2", { staticClass: "uk-modal-title" }, [
+                          _vm._v("Edit")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "uk-text-right" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: item.item_name,
+                                expression: "item.item_name"
+                              }
+                            ],
+                            staticClass:
+                              "uk-input uk-width-expand uk-margin-bottom",
+                            attrs: { name: "editvalue", type: "text" },
+                            domProps: { value: item.item_name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(item, "item_name", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "uk-button uk-button-default uk-modal-close",
+                              attrs: { type: "button" }
+                            },
+                            [_vm._v("Cancel")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "uk-button uk-button-primary uk-modal-close",
+                              attrs: { name: "editbutton", type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.editItem(item.id, item.item_name)
+                                }
+                              }
+                            },
+                            [_vm._v("Save")]
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "a",

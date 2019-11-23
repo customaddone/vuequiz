@@ -11,6 +11,7 @@
                     </div>
                 </div>
                 <div class="uk-card-body">
+                    <!--  アイテムの追加 -->
                     <input name="addvalue" class="uk-input uk-width-2-3"　type="text"
                         v-model="addItemName" placeholder="・Add item name">
                     <button name="addbutton" @click="addItem" class="uk-button
@@ -23,9 +24,25 @@
                 <div>
                     <ul class="uk-list uk-list-striped" uk-accordion>
                         <li v-for="(item, index) in items" v-bind:key="index">
+                            <!--  アイテムの削除 -->
                             <button dusk="trash" @click="deleteItem(item.id)" uk-icon="icon: trash; ratio: 1.5"
                                 class="uk-margin-left uk-logo uk-float-right"></button>
-                            <button dusk="edit" uk-icon="icon: pencil; ratio: 1.5" class="uk-margin-left uk-logo uk-float-right"></button>
+                            <!--  アイテムの編集 -->
+                            <button dusk="edit"  uk-toggle="target: #item-edit"　uk-icon="icon: pencil; ratio: 1.5"
+                                class="uk-margin-left uk-logo uk-float-right"></button>
+                            <div class="modal" id="item-edit" uk-modal>
+                                <div class="uk-modal-dialog uk-modal-body">
+                                    <h2 class="uk-modal-title">Edit</h2>
+                                    <p class="uk-text-right">
+                                        <input name="editvalue" class="uk-input uk-width-expand uk-margin-bottom"　type="text"
+                                            v-model="item.item_name">
+                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                        <button name="editbutton"　@click="editItem(item.id, item.item_name)"
+                                            class="uk-button uk-button-primary uk-modal-close" type="button">Save</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- アイテムの表示 -->
                             <a class="uk-accordion-title" href="#">・{{ item.item_name }}</a>
                             <div class="uk-accordion-content">
                                 <p>Lorem ipsum dolor sit amet</p>
@@ -52,7 +69,7 @@ export default {
   },
 
   methods : {
-    // アイテムの追加、削除
+    // アイテムの追加、編集、削除
     indexItems: function () {
       axios.get('/api/items'
       ).then((response) => {
@@ -66,6 +83,16 @@ export default {
       axios.post('/api/items',{
             user_id: 1,
             item_name: this.addItemName,
+      }).then((response) => {
+        this.indexItems();
+      }).catch((response) => {
+        console.log(response);
+      })
+    },
+
+    editItem: function (id, name) {
+      axios.post('/api/items/' + id,{
+            item_name: name,
       }).then((response) => {
         this.indexItems();
       }).catch((response) => {

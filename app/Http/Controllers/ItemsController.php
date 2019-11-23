@@ -21,6 +21,14 @@ class ItemsController extends Controller
         return $item;
     }
 
+    public function edit(Request $request, $id)
+    {
+        $item = Item::find($id);
+        $form = $request->all();
+        $item->fill($form)->save();
+        return $item;
+    }
+
     public function destroy($id) {
         $item = Item::find($id)->delete();
     }

@@ -16,10 +16,7 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　① 追加機能 （成功後スクリーンショットして「hello.img」の名前で保存）
-        　② 削除機能
-        　共にテストが通る
-          dusk=""でボタンを指定すると画面上の一番最初のボタンが選択されるみたい
+        　アイテム追加　→　アコーディオン展開　→　アイテム削除
         */
         $this->browse(function ($first, $second) {
             $first->visit('/')
@@ -27,13 +24,12 @@ class ExampleTest extends DuskTestCase
                   ->press('addbutton')
                   ->pause(100)
                   ->assertSee('hello')
-                  ->screenshot('hello.img')
 
-                  ->press('@edit')
-                  ->whenAvailable('.modal', function ($modal) {
-                      $modal->type('editvalue', 'nice')
-                            ->press('editbutton');
-                  })->assertSee('nice')
+                  ->press('.uk-accordion-title')
+                  ->pause(100)
+                  ->screenshot('hello.img')
+                  ->assertSee('Lorem')
+                  ->press('.uk-accordion-title')
 
                   ->press('@trash')
                   ->pause(100)

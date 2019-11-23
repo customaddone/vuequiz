@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'api'], function() {
   Route::get("/items", "ItemsController@index");
   Route::post("/items", "ItemsController@store");
+  Route::post("/items/{id}", "ItemsController@edit");
   Route::delete('/items/{id}', 'ItemsController@destroy');
 });
