@@ -16,13 +16,24 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　アイテムの名前を記入　→　下のリストに表示
+        　① 追加機能 （成功後スクリーンショットして「hello.img」の名前で保存）
+        　② 削除機能
+        　共にテストが通る
+          dusk=""でボタンを指定すると画面上の一番最初のボタンが選択されるみたい
         */
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->type('addvalue', 'hello')
-                    ->press('addbutton')
-                    ->assertSee('hello');
+        $this->browse(function ($first, $second) {
+            $first->visit('/')
+                  ->type('addvalue', 'hello')
+                  ->press('addbutton')
+                  ->pause(100)
+                  ->assertSee('hello')
+                  ->screenshot('hello.img')
+
+                  ->press('@trash')
+                  ->pause(100)
+                  ->assertDontSee('hello');
         });
+
+
     }
 }
