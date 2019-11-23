@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Item;
+use App\Explanation;
 
-class ItemsController extends Controller
+class ExplanationsController extends Controller
 {
     public function index()
     {
-        // with(結びつけるテーブルの名前)でリレーション付けたデータが追加される
-        $items = Item::with('explanations')->get();
+        $items = Explanation::all();
         return $items;
     }
 
     public function store(Request $request)
     {
-        $item = new Item;
+        $item = new Explanation;
         $form = $request->all();
         $item->fill($form)->save();
         return $item;
@@ -24,13 +23,13 @@ class ItemsController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $item = Item::find($id);
+        $item = Explanation::find($id);
         $form = $request->all();
         $item->fill($form)->save();
         return $item;
     }
 
     public function destroy($id) {
-        $item = Item::find($id)->delete();
+        $item = Explanation::find($id)->delete();
     }
 }

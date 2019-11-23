@@ -16,21 +16,35 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　各アイテムについての説明文が表示され...ない！！
+        　アイテムに説明文を追加
+        　①　アイテム「hello」を追加
+        　②　helloの説明文「nice」を追加
+        　③　helloの説明文「nice」を削除
+        　④　helloを削除
         */
-        $this->browse(function ($first, $second) {
-            $first->visit('/')
-                  ->type('addvalue', 'hello')
-                  ->press('addbutton')
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                  // アイテム追加
+                  ->type('add_value', 'hello')
+                  ->press('add_button')
                   ->pause(100)
-                  ->assertSee('hello')
+                  ->assertSee('1 items')
 
+                  // 説明文追加、削除
                   ->press('.uk-accordion-title')
                   ->pause(100)
+                  ->type('add_explanation', 'nice')
+                  ->press('add_explanation_button')
+                  ->pause(100)
+                  ->assertSee('nice')
                   ->screenshot('hello.img')
-                  ->assertSee('explanation 1')
+                  ->press('@trash_explanation')
+                  ->pause(100)
+                  ->assertDontSee('nice')
                   ->press('.uk-accordion-title')
+                  ->pause(100)
 
+                  // アイテム削除
                   ->press('@trash')
                   ->pause(100)
                   ->assertDontSee('hello');

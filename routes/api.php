@@ -22,4 +22,9 @@ Route::group(['middleware' => 'api'], function() {
   Route::post("/items", "ItemsController@store");
   Route::post("/items/{id}", "ItemsController@edit");
   Route::delete('/items/{id}', 'ItemsController@destroy');
+
+  Route::get("/explanations/{item_id}", "ExplanationsController@index");
+  Route::post("/explanations", "ExplanationsController@store");
+  Route::post("/explanations/{id}", "ExplanationsController@edit");
+  Route::delete('/explanations/{id}', 'ExplanationsController@destroy');
 });

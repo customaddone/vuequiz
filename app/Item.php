@@ -10,4 +10,8 @@ class Item extends Model
     protected $fillable = [
         'user_id', 'item_name'
     ];
+
+    public function explanations() {
+        return $this->hasMany('App\Explanation');
+    }
 }

@@ -1895,11 +1895,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       items: [],
-      addItemName: ""
+      addItemName: "",
+      explanations: [],
+      addExplanationData: ""
     };
   },
   mounted: function mounted() {
@@ -1924,6 +1967,8 @@ __webpack_require__.r(__webpack_exports__);
         item_name: this.addItemName
       }).then(function (response) {
         _this2.indexItems();
+
+        _this2.addItemName = "";
       })["catch"](function (response) {
         console.log(response);
       });
@@ -1944,6 +1989,50 @@ __webpack_require__.r(__webpack_exports__);
 
       axios["delete"]('/api/items/' + id).then(function () {
         _this4.indexItems();
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    // アイテムに対する説明の追加、編集、削除
+    indexExplanations: function indexExplanations() {
+      var _this5 = this;
+
+      axios.get('/api/explanations').then(function (response) {
+        _this5.explanations = response.data;
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    addExplanation: function addExplanation(item_id) {
+      var _this6 = this;
+
+      axios.post('/api/explanations', {
+        item_id: item_id,
+        explanation: this.addExplanationData
+      }).then(function (response) {
+        _this6.indexItems();
+
+        _this6.addExplanationData = "";
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    editExplanation: function editExplanation(id, explanation) {
+      var _this7 = this;
+
+      axios.post('/api/explanations/' + id, {
+        explanation: explanation
+      }).then(function (response) {
+        _this7.indexItems();
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    deleteExplanation: function deleteExplanation(id) {
+      var _this8 = this;
+
+      axios["delete"]('/api/explanations/' + id).then(function () {
+        _this8.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
@@ -19318,7 +19407,7 @@ var render = function() {
             ],
             staticClass: "uk-input uk-width-2-3",
             attrs: {
-              name: "addvalue",
+              name: "add_value",
               type: "text",
               placeholder: "・Add item name"
             },
@@ -19338,7 +19427,7 @@ var render = function() {
             {
               staticClass:
                 "uk-button\n                    uk-button-primary uk-float-right uk-border-rounded",
-              attrs: { name: "addbutton" },
+              attrs: { name: "add_button" },
               on: { click: _vm.addItem }
             },
             [_vm._v("ADD")]
@@ -19358,7 +19447,7 @@ var render = function() {
               [_vm._v("... Items List")]
             ),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(_vm.items.length) + " items")])
+            _c("div", [_vm._v(_vm._s(_vm.items.length) + " items...")])
           ]
         ),
         _vm._v(" "),
@@ -19468,7 +19557,176 @@ var render = function() {
                   [_vm._v("・" + _vm._s(item.item_name))]
                 ),
                 _vm._v(" "),
-                _vm._m(1, true)
+                _c("div", { staticClass: "uk-accordion-content" }, [
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Explanations")]),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "uk-list　uk-list-divider" },
+                    _vm._l(item.explanations, function(explanation, index) {
+                      return _c("li", { key: index }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "uk-margin-left uk-float-right",
+                            attrs: { dusk: "trash_explanation" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteExplanation(explanation.id)
+                              }
+                            }
+                          },
+                          [_vm._v("削除")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "uk-margin-left uk-float-right",
+                            attrs: {
+                              dusk: "edit_explanation",
+                              "uk-toggle": "target: #explanation-edit"
+                            }
+                          },
+                          [_vm._v("編集")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "modal",
+                            attrs: { id: "explanation-edit", "uk-modal": "" }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "uk-modal-dialog uk-modal-body" },
+                              [
+                                _c("h2", { staticClass: "uk-modal-title" }, [
+                                  _vm._v("Edit explanation")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "uk-text-right" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: explanation.explanation,
+                                        expression: "explanation.explanation"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "uk-input uk-width-expand uk-margin-bottom",
+                                    attrs: { name: "editvalue", type: "text" },
+                                    domProps: {
+                                      value: explanation.explanation
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          explanation,
+                                          "explanation",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "uk-button uk-button-default uk-modal-close",
+                                      attrs: { type: "button" }
+                                    },
+                                    [_vm._v("Cancel")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "uk-button uk-button-primary uk-modal-close",
+                                      attrs: {
+                                        name: "editbutton",
+                                        type: "button"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editExplanation(
+                                            explanation.id,
+                                            explanation.explanation
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Save")]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            _vm._s(index + 1) +
+                              ". " +
+                              _vm._s(explanation.explanation)
+                          )
+                        ])
+                      ])
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.addExplanationData,
+                        expression: "addExplanationData"
+                      }
+                    ],
+                    staticClass: "uk-input uk-width-2-3",
+                    attrs: {
+                      name: "add_explanation",
+                      type: "text",
+                      placeholder: "・Add explanation"
+                    },
+                    domProps: { value: _vm.addExplanationData },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.addExplanationData = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "uk-button\n                                uk-button-primary uk-float-right uk-border-rounded",
+                      attrs: { name: "add_explanation_button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.addExplanation(item.id)
+                        }
+                      }
+                    },
+                    [_vm._v("ADD")]
+                  )
+                ])
               ])
             }),
             0
@@ -19504,14 +19762,6 @@ var staticRenderFns = [
           ])
         ]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-accordion-content" }, [
-      _c("p", [_vm._v("Explanations")])
     ])
   }
 ]
