@@ -29,6 +29,12 @@ class ExampleTest extends DuskTestCase
                   ->assertSee('hello')
                   ->screenshot('hello.img')
 
+                  ->press('@edit')
+                  ->whenAvailable('.modal', function ($modal) {
+                      $modal->type('editvalue', 'nice')
+                            ->press('editbutton');
+                  })->assertSee('nice')
+
                   ->press('@trash')
                   ->pause(100)
                   ->assertDontSee('hello');

@@ -16,13 +16,17 @@
                     <button name="addbutton" @click="addItem" class="uk-button
                         uk-button-primary uk-float-right uk-border-rounded">ADD</button>
                 </div>
+                <div class="uk-grid-small uk-margin-bottom" uk-grid>
+                  <div class="uk-width-expand" uk-leader>... Items List</div>
+                  <div>{{ items.length }} items</div>
+                </div>
                 <div>
                     <ul class="uk-list uk-list-striped" uk-accordion>
                         <li v-for="(item, index) in items" v-bind:key="index">
-                            <a uk-icon="icon: pencil; ratio: 1.5" class="uk-margin-left uk-logo uk-float-right"></a>
                             <button dusk="trash" @click="deleteItem(item.id)" uk-icon="icon: trash; ratio: 1.5"
                                 class="uk-margin-left uk-logo uk-float-right"></button>
-                            <a class="uk-accordion-title" href="#">{{ item.item_name }}</a>
+                            <button dusk="edit" uk-icon="icon: pencil; ratio: 1.5" class="uk-margin-left uk-logo uk-float-right"></button>
+                            <a class="uk-accordion-title" href="#">・{{ item.item_name }}</a>
                             <div class="uk-accordion-content">
                                 <p>Lorem ipsum dolor sit amet</p>
                             </div>
@@ -48,7 +52,7 @@ export default {
   },
 
   methods : {
-
+    // アイテムの追加、削除
     indexItems: function () {
       axios.get('/api/items'
       ).then((response) => {
@@ -63,7 +67,7 @@ export default {
             user_id: 1,
             item_name: this.addItemName,
       }).then((response) => {
-        this.indexItems(); //これいる？
+        this.indexItems();
       }).catch((response) => {
         console.log(response);
       })

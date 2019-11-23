@@ -17,7 +17,6 @@ class ItemsController extends Controller
     {
         $item = new Item;
         $form = $request->all();
-        unset($form['_token']);
         $item->fill($form)->save();
         return $item;
     }

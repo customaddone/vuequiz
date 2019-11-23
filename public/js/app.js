@@ -1874,6 +1874,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1885,6 +1889,7 @@ __webpack_require__.r(__webpack_exports__);
     this.indexItems();
   },
   methods: {
+    // アイテムの追加、削除
     indexItems: function indexItems() {
       var _this = this;
 
@@ -1901,8 +1906,7 @@ __webpack_require__.r(__webpack_exports__);
         user_id: 1,
         item_name: this.addItemName
       }).then(function (response) {
-        _this2.indexItems(); //これいる？
-
+        _this2.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
@@ -19313,6 +19317,23 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "uk-grid-small uk-margin-bottom",
+            attrs: { "uk-grid": "" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "uk-width-expand", attrs: { "uk-leader": "" } },
+              [_vm._v("... Items List")]
+            ),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(_vm.items.length) + " items")])
+          ]
+        ),
+        _vm._v(" "),
         _c("div", [
           _c(
             "ul",
@@ -19322,11 +19343,6 @@ var render = function() {
             },
             _vm._l(_vm.items, function(item, index) {
               return _c("li", { key: index }, [
-                _c("a", {
-                  staticClass: "uk-margin-left uk-logo uk-float-right",
-                  attrs: { "uk-icon": "icon: pencil; ratio: 1.5" }
-                }),
-                _vm._v(" "),
                 _c("button", {
                   staticClass: "uk-margin-left uk-logo uk-float-right",
                   attrs: {
@@ -19340,10 +19356,15 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
+                _c("button", {
+                  staticClass: "uk-margin-left uk-logo uk-float-right",
+                  attrs: { dusk: "edit", "uk-icon": "icon: pencil; ratio: 1.5" }
+                }),
+                _vm._v(" "),
                 _c(
                   "a",
                   { staticClass: "uk-accordion-title", attrs: { href: "#" } },
-                  [_vm._v(_vm._s(item.item_name))]
+                  [_vm._v("・" + _vm._s(item.item_name))]
                 ),
                 _vm._v(" "),
                 _vm._m(1, true)
