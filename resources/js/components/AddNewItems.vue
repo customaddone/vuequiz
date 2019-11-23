@@ -45,7 +45,7 @@
                             <!-- アイテムの表示 -->
                             <a class="uk-accordion-title" href="#">・{{ item.item_name }}</a>
                             <div class="uk-accordion-content">
-                                <p>Lorem ipsum dolor sit amet</p>
+                                <p>Explanations</p>
                             </div>
                         </li>
                     </ul>

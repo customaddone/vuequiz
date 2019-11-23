@@ -19511,7 +19511,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "uk-accordion-content" }, [
-      _c("p", [_vm._v("Lorem ipsum dolor sit amet")])
+      _c("p", [_vm._v("Explanations")])
     ])
   }
 ]

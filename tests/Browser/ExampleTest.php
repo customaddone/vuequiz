@@ -16,7 +16,7 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         /*
-        　アイテム追加　→　アコーディオン展開　→　アイテム削除
+        　各アイテムについての説明文が表示され...ない！！
         */
         $this->browse(function ($first, $second) {
             $first->visit('/')
@@ -28,7 +28,7 @@ class ExampleTest extends DuskTestCase
                   ->press('.uk-accordion-title')
                   ->pause(100)
                   ->screenshot('hello.img')
-                  ->assertSee('Lorem')
+                  ->assertSee('explanation 1')
                   ->press('.uk-accordion-title')
 
                   ->press('@trash')
