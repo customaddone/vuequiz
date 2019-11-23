@@ -45,9 +45,7 @@ class ExampleTest extends DuskTestCase
                   ->pause(100)
 
                   // アイテム削除
-                  ->press('@trash')
-                  ->pause(100)
-                  ->assertDontSee('hello');
+                  ->press('@trash');
         });
 
 
