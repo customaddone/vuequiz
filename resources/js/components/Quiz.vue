@@ -8,7 +8,7 @@
                 <!-- タイトル -->
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-expand uk-text-center">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">How am I ?</h3>
+                        <h3 class="uk-card-title uk-margin-remove-bottom">{{ items[0].item_name }}</h3>
                         <p class="uk-text-meta uk-margin-remove">score: 100</p>
                         <p class="uk-text-meta uk-margin-remove">total score: 1000</p>
                     </div>
@@ -56,4 +56,27 @@
 </template>
 
 <script>
+export default {
+  data: function () {
+    return {
+      items: [],
+    }
+  },
+
+  mounted: function () {
+    this.indexItems10();
+  },
+
+  methods : {
+    indexItems10: function () {
+      axios.get('/api/items/items10'
+      ).then((response) => {
+        this.items = response.data;
+      }).catch((response) => {
+         console.log(response);
+      })
+    },
+  }
+}
+
 </script>

@@ -2047,9 +2047,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Quiz.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2107,6 +2109,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      items: []
+    };
+  },
+  mounted: function mounted() {
+    this.indexItems10();
+  },
+  methods: {
+    indexItems10: function indexItems10() {
+      var _this = this;
+
+      axios.get('/api/items/items10').then(function (response) {
+        _this.items = response.data;
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -19912,7 +19935,47 @@ var render = function() {
           [_vm._v("add Items")]
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _c(
+          "div",
+          { staticClass: "uk-card uk-card-default uk-border-rounded" },
+          [
+            _c("div", { staticClass: "uk-card-header" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "uk-grid-small uk-flex-middle",
+                  attrs: { "uk-grid": "" }
+                },
+                [
+                  _c("div", { staticClass: "uk-width-expand uk-text-center" }, [
+                    _c(
+                      "h3",
+                      { staticClass: "uk-card-title uk-margin-remove-bottom" },
+                      [_vm._v(_vm._s(_vm.items[0].item_name))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
+                      _vm._v("score: 100")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
+                      _vm._v("total score: 1000")
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("progress", {
+                staticClass: "uk-progress",
+                attrs: { id: "js-progressbar", value: "10", max: "100" }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div")
+          ]
+        )
       ],
       1
     )
@@ -19923,126 +19986,84 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "uk-card uk-card-default uk-border-rounded" },
-      [
-        _c("div", { staticClass: "uk-card-header" }, [
-          _c(
-            "div",
-            {
-              staticClass: "uk-grid-small uk-flex-middle",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", { staticClass: "uk-width-expand uk-text-center" }, [
-                _c(
-                  "h3",
-                  { staticClass: "uk-card-title uk-margin-remove-bottom" },
-                  [_vm._v("How am I ?")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
-                  _vm._v("score: 100")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
-                  _vm._v("total score: 1000")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("progress", {
-            staticClass: "uk-progress",
-            attrs: { id: "js-progressbar", value: "10", max: "100" }
-          })
+    return _c("div", { staticClass: "uk-card-body" }, [
+      _c("p", [_vm._v("・Explanations")]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "uk-list　uk-list-divider" }, [
+        _c("li", [
+          _vm._v("\n                        あ\n                    ")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "uk-card-body" }, [
-          _c("p", [_vm._v("・Explanations")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "uk-list　uk-list-divider" }, [
-            _c("li", [
-              _vm._v("\n                        あ\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v("\n                        い\n                    ")
-            ])
+        _c("li", [_vm._v("\n                        い\n                    ")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom"
+        },
+        [_vm._v("Add explanations")]
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small ",
+          attrs: { "uk-grid": "" }
+        },
+        [
+          _c("div", [
+            _c(
+              "button",
+              { staticClass: "uk-button uk-button-default uk-width-1-1" },
+              [_vm._v("Button")]
+            )
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom"
-            },
-            [_vm._v("Add explanations")]
-          ),
+          _c("div", [
+            _c(
+              "button",
+              { staticClass: "uk-button uk-button-default uk-width-1-1" },
+              [_vm._v("Button")]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small",
+          attrs: { "uk-grid": "" }
+        },
+        [
+          _c("div", [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
+              },
+              [_vm._v("Button")]
+            )
+          ]),
           _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small ",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", [
-                _c(
-                  "button",
-                  { staticClass: "uk-button uk-button-default uk-width-1-1" },
-                  [_vm._v("Button")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "button",
-                  { staticClass: "uk-button uk-button-default uk-width-1-1" },
-                  [_vm._v("Button")]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
-                  },
-                  [_vm._v("Button")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
-                  },
-                  [_vm._v("Button")]
-                )
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div")
-      ]
-    )
+          _c("div", [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
+              },
+              [_vm._v("Button")]
+            )
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -20358,15 +20379,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./resources/js/components/Quiz.vue ***!
   \******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Quiz.vue?vue&type=template&id=654966c0& */ "./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&");
 /* harmony import */ var _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Quiz.vue?vue&type=script&lang=js& */ "./resources/js/components/Quiz.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -20396,15 +20416,13 @@ component.options.__file = "resources/js/components/Quiz.vue"
 /*!*******************************************************************!*\
   !*** ./resources/js/components/Quiz.vue?vue&type=script&lang=js& ***!
   \*******************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Quiz.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

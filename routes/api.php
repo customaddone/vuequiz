@@ -27,4 +27,6 @@ Route::group(['middleware' => 'api'], function() {
   Route::post("/explanations", "ExplanationsController@store");
   Route::post("/explanations/{id}", "ExplanationsController@edit");
   Route::delete('/explanations/{id}', 'ExplanationsController@destroy');
+
+  Route::get("/items/items10", "ItemsController@items10");
 });

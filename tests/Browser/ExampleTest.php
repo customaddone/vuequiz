@@ -27,22 +27,22 @@ class ExampleTest extends DuskTestCase
                   // アイテム追加
                   ->type('add_value', 'hello')
                   ->press('add_button')
-                  ->pause(100)
-                  ->assertSee('1 items')
+                  ->pause(1000)
+                  ->assertSee('hello')
 
                   // 説明文追加、削除
                   ->press('.uk-accordion-title')
-                  ->pause(100)
+                  ->pause(1000)
                   ->type('add_explanation', 'nice')
                   ->press('add_explanation_button')
-                  ->pause(100)
-                  ->assertSee('nice')
+                  ->pause(1000)
                   ->screenshot('hello.img')
+                  ->assertSee('nice')
                   ->press('@trash_explanation')
-                  ->pause(100)
+                  ->pause(1000)
                   ->assertDontSee('nice')
                   ->press('.uk-accordion-title')
-                  ->pause(100)
+                  ->pause(1000)
 
                   // アイテム削除
                   ->press('@trash');

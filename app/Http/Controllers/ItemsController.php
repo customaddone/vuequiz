@@ -33,4 +33,12 @@ class ItemsController extends Controller
     public function destroy($id) {
         $item = Item::find($id)->delete();
     }
+
+    // クイズ用にアイテムをランダムに１０個引っ張ってくる
+    public function items10()
+    {
+        $items = Item::inRandomOrder()->take(10)->get();
+        return $items;
+    }
+
 }
