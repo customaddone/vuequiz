@@ -1,6 +1,7 @@
 <template>
     <div class="uk-container">
         <div class="uk-section-xsmall">
+            <router-link to="/"  class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">PLAY QUIZ</router-link>
             <div class="uk-card uk-card-default uk-border-rounded">
                 <div class="uk-card-header">
 

@@ -23,7 +23,7 @@ class ExampleTest extends DuskTestCase
         　④　helloを削除
         */
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
+            $browser->visit('/#/addItems')
                   // アイテム追加
                   ->type('add_value', 'hello')
                   ->press('add_button')

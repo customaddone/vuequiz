@@ -1936,6 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2039,6 +2040,73 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Quiz.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -19391,349 +19459,392 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "uk-container" }, [
-    _c("div", { staticClass: "uk-section-xsmall" }, [
-      _c("div", { staticClass: "uk-card uk-card-default uk-border-rounded" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "uk-card-body" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.addItemName,
-                expression: "addItemName"
-              }
-            ],
-            staticClass: "uk-input uk-width-2-3",
-            attrs: {
-              name: "add_value",
-              type: "text",
-              placeholder: "・Add item name"
-            },
-            domProps: { value: _vm.addItemName },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.addItemName = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "uk-button\n                    uk-button-primary uk-float-right uk-border-rounded",
-              attrs: { name: "add_button" },
-              on: { click: _vm.addItem }
-            },
-            [_vm._v("ADD")]
-          )
-        ]),
+    _c(
+      "div",
+      { staticClass: "uk-section-xsmall" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom",
+            attrs: { to: "/" }
+          },
+          [_vm._v("PLAY QUIZ")]
+        ),
         _vm._v(" "),
         _c(
           "div",
-          {
-            staticClass: "uk-grid-small uk-margin-bottom",
-            attrs: { "uk-grid": "" }
-          },
+          { staticClass: "uk-card uk-card-default uk-border-rounded" },
           [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "uk-card-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.addItemName,
+                    expression: "addItemName"
+                  }
+                ],
+                staticClass: "uk-input uk-width-2-3",
+                attrs: {
+                  name: "add_value",
+                  type: "text",
+                  placeholder: "・Add item name"
+                },
+                domProps: { value: _vm.addItemName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.addItemName = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "uk-button\n                    uk-button-primary uk-float-right uk-border-rounded",
+                  attrs: { name: "add_button" },
+                  on: { click: _vm.addItem }
+                },
+                [_vm._v("ADD")]
+              )
+            ]),
+            _vm._v(" "),
             _c(
               "div",
-              { staticClass: "uk-width-expand", attrs: { "uk-leader": "" } },
-              [_vm._v("... Items List")]
-            ),
-            _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(_vm.items.length) + " items...")])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", [
-          _c(
-            "ul",
-            {
-              staticClass: "uk-list uk-list-striped",
-              attrs: { "uk-accordion": "" }
-            },
-            _vm._l(_vm.items, function(item, index) {
-              return _c("li", { key: index }, [
-                _c("button", {
-                  staticClass: "uk-margin-left uk-logo uk-float-right",
-                  attrs: {
-                    dusk: "trash",
-                    "uk-icon": "icon: trash; ratio: 1.5"
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteItem(item.id)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("button", {
-                  staticClass: "uk-margin-left uk-logo uk-float-right",
-                  attrs: {
-                    dusk: "edit",
-                    "uk-toggle": "target: #item-edit",
-                    "uk-icon": "icon: pencil; ratio: 1.5"
-                  }
-                }),
-                _vm._v(" "),
+              {
+                staticClass: "uk-grid-small uk-margin-bottom",
+                attrs: { "uk-grid": "" }
+              },
+              [
                 _c(
                   "div",
                   {
-                    staticClass: "modal",
-                    attrs: { id: "item-edit", "uk-modal": "" }
+                    staticClass: "uk-width-expand",
+                    attrs: { "uk-leader": "" }
                   },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "uk-modal-dialog uk-modal-body" },
-                      [
-                        _c("h2", { staticClass: "uk-modal-title" }, [
-                          _vm._v("Edit")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "uk-text-right" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: item.item_name,
-                                expression: "item.item_name"
-                              }
-                            ],
-                            staticClass:
-                              "uk-input uk-width-expand uk-margin-bottom",
-                            attrs: { name: "editvalue", type: "text" },
-                            domProps: { value: item.item_name },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(item, "item_name", $event.target.value)
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "uk-button uk-button-default uk-modal-close",
-                              attrs: { type: "button" }
-                            },
-                            [_vm._v("Cancel")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "uk-button uk-button-primary uk-modal-close",
-                              attrs: { name: "editbutton", type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.editItem(item.id, item.item_name)
-                                }
-                              }
-                            },
-                            [_vm._v("Save")]
-                          )
-                        ])
-                      ]
-                    )
-                  ]
+                  [_vm._v("... Items List")]
                 ),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "uk-accordion-title", attrs: { href: "#" } },
-                  [_vm._v("・" + _vm._s(item.item_name))]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "uk-accordion-content" }, [
-                  _c("hr"),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Explanations")]),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "uk-list　uk-list-divider" },
-                    _vm._l(item.explanations, function(explanation, index) {
-                      return _c("li", { key: index }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "uk-margin-left uk-float-right",
-                            attrs: { dusk: "trash_explanation" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteExplanation(explanation.id)
-                              }
-                            }
-                          },
-                          [_vm._v("削除")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "uk-margin-left uk-float-right",
-                            attrs: {
-                              dusk: "edit_explanation",
-                              "uk-toggle": "target: #explanation-edit"
-                            }
-                          },
-                          [_vm._v("編集")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "modal",
-                            attrs: { id: "explanation-edit", "uk-modal": "" }
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "uk-modal-dialog uk-modal-body" },
-                              [
-                                _c("h2", { staticClass: "uk-modal-title" }, [
-                                  _vm._v("Edit explanation")
-                                ]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "uk-text-right" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: explanation.explanation,
-                                        expression: "explanation.explanation"
-                                      }
-                                    ],
-                                    staticClass:
-                                      "uk-input uk-width-expand uk-margin-bottom",
-                                    attrs: { name: "editvalue", type: "text" },
-                                    domProps: {
-                                      value: explanation.explanation
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          explanation,
-                                          "explanation",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "uk-button uk-button-default uk-modal-close",
-                                      attrs: { type: "button" }
-                                    },
-                                    [_vm._v("Cancel")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "uk-button uk-button-primary uk-modal-close",
-                                      attrs: {
-                                        name: "editbutton",
-                                        type: "button"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.editExplanation(
-                                            explanation.id,
-                                            explanation.explanation
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Save")]
-                                  )
-                                ])
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            _vm._s(index + 1) +
-                              ". " +
-                              _vm._s(explanation.explanation)
-                          )
-                        ])
-                      ])
-                    }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.addExplanationData,
-                        expression: "addExplanationData"
-                      }
-                    ],
-                    staticClass: "uk-input uk-width-2-3",
-                    attrs: {
-                      name: "add_explanation",
-                      type: "text",
-                      placeholder: "・Add explanation"
-                    },
-                    domProps: { value: _vm.addExplanationData },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.addExplanationData = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "uk-button\n                                uk-button-primary uk-float-right uk-border-rounded",
-                      attrs: { name: "add_explanation_button" },
+                _c("div", [_vm._v(_vm._s(_vm.items.length) + " items...")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "ul",
+                {
+                  staticClass: "uk-list uk-list-striped",
+                  attrs: { "uk-accordion": "" }
+                },
+                _vm._l(_vm.items, function(item, index) {
+                  return _c("li", { key: index }, [
+                    _c("button", {
+                      staticClass: "uk-margin-left uk-logo uk-float-right",
+                      attrs: {
+                        dusk: "trash",
+                        "uk-icon": "icon: trash; ratio: 1.5"
+                      },
                       on: {
                         click: function($event) {
-                          return _vm.addExplanation(item.id)
+                          return _vm.deleteItem(item.id)
                         }
                       }
-                    },
-                    [_vm._v("ADD")]
-                  )
-                ])
-              ])
-            }),
-            0
-          )
-        ])
-      ])
-    ])
+                    }),
+                    _vm._v(" "),
+                    _c("button", {
+                      staticClass: "uk-margin-left uk-logo uk-float-right",
+                      attrs: {
+                        dusk: "edit",
+                        "uk-toggle": "target: #item-edit",
+                        "uk-icon": "icon: pencil; ratio: 1.5"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "modal",
+                        attrs: { id: "item-edit", "uk-modal": "" }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "uk-modal-dialog uk-modal-body" },
+                          [
+                            _c("h2", { staticClass: "uk-modal-title" }, [
+                              _vm._v("Edit")
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "uk-text-right" }, [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: item.item_name,
+                                    expression: "item.item_name"
+                                  }
+                                ],
+                                staticClass:
+                                  "uk-input uk-width-expand uk-margin-bottom",
+                                attrs: { name: "editvalue", type: "text" },
+                                domProps: { value: item.item_name },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      item,
+                                      "item_name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-default uk-modal-close",
+                                  attrs: { type: "button" }
+                                },
+                                [_vm._v("Cancel")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-primary uk-modal-close",
+                                  attrs: { name: "editbutton", type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.editItem(
+                                        item.id,
+                                        item.item_name
+                                      )
+                                    }
+                                  }
+                                },
+                                [_vm._v("Save")]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "uk-accordion-title",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v("・" + _vm._s(item.item_name))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "uk-accordion-content" }, [
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Explanations")]),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        { staticClass: "uk-list　uk-list-divider" },
+                        _vm._l(item.explanations, function(explanation, index) {
+                          return _c("li", { key: index }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "uk-margin-left uk-float-right",
+                                attrs: { dusk: "trash_explanation" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteExplanation(explanation.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("削除")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "uk-margin-left uk-float-right",
+                                attrs: {
+                                  dusk: "edit_explanation",
+                                  "uk-toggle": "target: #explanation-edit"
+                                }
+                              },
+                              [_vm._v("編集")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "modal",
+                                attrs: {
+                                  id: "explanation-edit",
+                                  "uk-modal": ""
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "uk-modal-dialog uk-modal-body"
+                                  },
+                                  [
+                                    _c(
+                                      "h2",
+                                      { staticClass: "uk-modal-title" },
+                                      [_vm._v("Edit explanation")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "uk-text-right" }, [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: explanation.explanation,
+                                            expression:
+                                              "explanation.explanation"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "uk-input uk-width-expand uk-margin-bottom",
+                                        attrs: {
+                                          name: "editvalue",
+                                          type: "text"
+                                        },
+                                        domProps: {
+                                          value: explanation.explanation
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              explanation,
+                                              "explanation",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "uk-button uk-button-default uk-modal-close",
+                                          attrs: { type: "button" }
+                                        },
+                                        [_vm._v("Cancel")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "uk-button uk-button-primary uk-modal-close",
+                                          attrs: {
+                                            name: "editbutton",
+                                            type: "button"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.editExplanation(
+                                                explanation.id,
+                                                explanation.explanation
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Save")]
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                _vm._s(index + 1) +
+                                  ". " +
+                                  _vm._s(explanation.explanation)
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.addExplanationData,
+                            expression: "addExplanationData"
+                          }
+                        ],
+                        staticClass: "uk-input uk-width-2-3",
+                        attrs: {
+                          name: "add_explanation",
+                          type: "text",
+                          placeholder: "・Add explanation"
+                        },
+                        domProps: { value: _vm.addExplanationData },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.addExplanationData = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "uk-button\n                                uk-button-primary uk-float-right uk-border-rounded",
+                          attrs: { name: "add_explanation_button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.addExplanation(item.id)
+                            }
+                          }
+                        },
+                        [_vm._v("ADD")]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ])
+          ]
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -19763,6 +19874,175 @@ var staticRenderFns = [
         ]
       )
     ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Quiz.vue?vue&type=template&id=654966c0& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "uk-container" }, [
+    _c(
+      "div",
+      { staticClass: "uk-section-xsmall" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom",
+            attrs: { to: "/addItems" }
+          },
+          [_vm._v("add Items")]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "uk-card uk-card-default uk-border-rounded" },
+      [
+        _c("div", { staticClass: "uk-card-header" }, [
+          _c(
+            "div",
+            {
+              staticClass: "uk-grid-small uk-flex-middle",
+              attrs: { "uk-grid": "" }
+            },
+            [
+              _c("div", { staticClass: "uk-width-expand uk-text-center" }, [
+                _c(
+                  "h3",
+                  { staticClass: "uk-card-title uk-margin-remove-bottom" },
+                  [_vm._v("How am I ?")]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
+                  _vm._v("score: 100")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
+                  _vm._v("total score: 1000")
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("progress", {
+            staticClass: "uk-progress",
+            attrs: { id: "js-progressbar", value: "10", max: "100" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-card-body" }, [
+          _c("p", [_vm._v("・Explanations")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "uk-list　uk-list-divider" }, [
+            _c("li", [
+              _vm._v("\n                        あ\n                    ")
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v("\n                        い\n                    ")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom"
+            },
+            [_vm._v("Add explanations")]
+          ),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small ",
+              attrs: { "uk-grid": "" }
+            },
+            [
+              _c("div", [
+                _c(
+                  "button",
+                  { staticClass: "uk-button uk-button-default uk-width-1-1" },
+                  [_vm._v("Button")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  { staticClass: "uk-button uk-button-default uk-width-1-1" },
+                  [_vm._v("Button")]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small",
+              attrs: { "uk-grid": "" }
+            },
+            [
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
+                  },
+                  [_vm._v("Button")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
+                  },
+                  [_vm._v("Button")]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div")
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -19952,12 +20232,17 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AddNewItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AddNewItems.vue */ "./resources/js/components/AddNewItems.vue");
+/* harmony import */ var _components_Quiz_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Quiz.vue */ "./resources/js/components/Quiz.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 var router = new VueRouter({
   routes: [{
     path: '/',
+    component: _components_Quiz_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }, {
+    path: '/addItems',
     component: _components_AddNewItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }]
 });
@@ -20064,6 +20349,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddNewItems_vue_vue_type_template_id_0c279fb4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddNewItems_vue_vue_type_template_id_0c279fb4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Quiz.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/Quiz.vue ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Quiz.vue?vue&type=template&id=654966c0& */ "./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&");
+/* harmony import */ var _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Quiz.vue?vue&type=script&lang=js& */ "./resources/js/components/Quiz.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Quiz.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Quiz.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Quiz.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Quiz.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/Quiz.vue?vue&type=template&id=654966c0& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Quiz.vue?vue&type=template&id=654966c0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
