@@ -34,7 +34,7 @@ class ItemsController extends Controller
         $item = Item::find($id)->delete();
     }
 
-    // クイズ用にアイテムをランダムに１０個引っ張ってくる
+    // クイズ用にアイテムをランダムに４*１０個引っ張ってくる
     public function items10()
     {
         $items = [];

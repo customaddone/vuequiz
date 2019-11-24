@@ -1,8 +1,8 @@
 <div class="uk-container uk-container-expand uk-section-primary">
     <nav class="uk-navbar">
         <div class="uk-navbar-left">
-            <a href="" uk-icon="icon: sign-in; ratio: 2" class="uk-navbar-item uk-logo"></a>
-            <p>Login</p>
+            <a href="/" uk-icon="icon: sign-in; ratio: 2" class="uk-navbar-item uk-logo"></a>
+            <p>Home</p>
         </div>
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav uk-visible@m">

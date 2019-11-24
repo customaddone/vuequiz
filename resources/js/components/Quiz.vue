@@ -1,7 +1,12 @@
 <template>
 <div class="uk-container">
     <div class="uk-section-xsmall">
-        <router-link to="/addItems"  class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">add Items</router-link>
+        <div v-if="quizCounter < 11">
+            <div class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Quiz</div>
+        </div>
+        <div v-else>
+            <router-link to="/"  class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Show Result</router-link>
+        </div>
         <div class="uk-card uk-card-default uk-border-rounded">
             <div class="uk-card-header">
 
@@ -9,12 +14,21 @@
                 <div class="uk-float-right" v-bind:style="{ color: activeColor }">
                     {{ rightAndWrong }}
                 </div>
-                <div>{{ quizCounter }}/10</div>
+                <div>
+                    {{ quizCounter }}/10
+                </div>
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-expand uk-text-center">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">{{ correctAnswer.item_name }}</h3>
+                        <h3 class="uk-card-title uk-margin-remove-bottom">
+                            <div v-if="nameHidden">
+                                What's this ?
+                            </div>
+                            <div v-else>
+                                {{ correctAnswer.item_name }}
+                            </div>
+                        </h3>
                         <p class="uk-text-meta uk-margin-remove">score: 100</p>
-                        <p class="uk-text-meta uk-margin-remove">total score: 1000</p>
+                        <p class="uk-text-meta uk-margin-remove">total score: {{ totalScore }}</p>
                     </div>
                 </div>
 
@@ -24,11 +38,8 @@
             <div class="uk-card-body">
                 <p>・Explanations</p>
                 <ul class="uk-list　uk-list-divider">
-                    <li>
-                        あ
-                    </li>
-                    <li>
-                        い
+                    <li v-for="(explanation, index) in correctAnswer.explanations" v-bind:key="index">
+                        {{ explanation.explanation }}
                     </li>
                 </ul>
                 <button class="uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom">Add explanations</button>
@@ -74,12 +85,13 @@ export default {
       items: [],
 
       correctAnswer: [],
+      nameHidden: true,
       choice: [],
       firstAnswer: true,
-      rightAndWrong: false,
+      rightAndWrong: true,
       activeColor: "black",
 
-      quizCounter: 0,
+      quizCounter: 1,
       score: 100,
       totalScore: 0,
     }
@@ -102,11 +114,17 @@ export default {
     },
 
     answer: function (answer) {
-      if (this.firstAnswer) {
+      if (this.firstAnswer && this.quizCounter < 11) {
         // 回答直後の処理
         var checkAnswer = ( answer == this.correctAnswer.id ) ? true : false;
+        this.nameHidden = false;
         this.rightAndWrong = checkAnswer;
-        this.activeColor = ( checkAnswer == true ) ? 'green' : 'red';
+        if (checkAnswer) {
+          this.activeColor = 'green';
+          this.totalScore += this.score;
+        } else {
+          this.activeColor = 'red';
+        }
         this.firstAnswer = false;
 
         // 回答して3秒後（次の問題に移る処理）
@@ -115,6 +133,10 @@ export default {
           this.indexItems10();
           this.activeColor = "black";
           this.firstAnswer = true;
+          this.nameHidden = true;
+          if ( this.quizCounter > 10 ) {
+              location.href(this.$router.push('/quizResult' + '/' + this.totalScore))
+          }
         }, 3000);
       }
     }
