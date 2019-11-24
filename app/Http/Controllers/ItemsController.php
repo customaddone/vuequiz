@@ -37,7 +37,11 @@ class ItemsController extends Controller
     // クイズ用にアイテムをランダムに１０個引っ張ってくる
     public function items10()
     {
-        $items = Item::inRandomOrder()->take(10)->get();
+        $items = [];
+        for ( $i = 0;  $i < 10; $i++ ) {
+            $items_group = Item::inRandomOrder()->take(4)->with('explanations')->get();
+            array_push($items, $items_group);
+        }
         return $items;
     }
 

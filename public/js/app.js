@@ -2109,10 +2109,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      items: []
+      items: [],
+      correctAnswer: [],
+      choice: [],
+      firstAnswer: true,
+      rightAndWrong: false,
+      activeColor: "black",
+      quizCounter: 0,
+      score: 100,
+      totalScore: 0
     };
   },
   mounted: function mounted() {
@@ -2124,9 +2144,31 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/items/items10').then(function (response) {
         _this.items = response.data;
+        _this.choice = _this.items[0];
+        _this.correctAnswer = _this.choice[Math.floor(Math.random() * 4)];
       })["catch"](function (response) {
         console.log(response);
       });
+    },
+    answer: function answer(_answer) {
+      var _this2 = this;
+
+      if (this.firstAnswer) {
+        // 回答直後の処理
+        var checkAnswer = _answer == this.correctAnswer.id ? true : false;
+        this.rightAndWrong = checkAnswer;
+        this.activeColor = checkAnswer == true ? 'green' : 'red';
+        this.firstAnswer = false; // 回答して3秒後（次の問題に移る処理）
+
+        setTimeout(function () {
+          _this2.quizCounter += 1;
+
+          _this2.indexItems10();
+
+          _this2.activeColor = "black";
+          _this2.firstAnswer = true;
+        }, 3000);
+      }
     }
   }
 });
@@ -19943,6 +19985,23 @@ var render = function() {
               _c(
                 "div",
                 {
+                  staticClass: "uk-float-right",
+                  style: { color: _vm.activeColor }
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.rightAndWrong) +
+                      "\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", [_vm._v(_vm._s(_vm.quizCounter) + "/10")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
                   staticClass: "uk-grid-small uk-flex-middle",
                   attrs: { "uk-grid": "" }
                 },
@@ -19951,7 +20010,7 @@ var render = function() {
                     _c(
                       "h3",
                       { staticClass: "uk-card-title uk-margin-remove-bottom" },
-                      [_vm._v(_vm._s(_vm.items[0].item_name))]
+                      [_vm._v(_vm._s(_vm.correctAnswer.item_name))]
                     ),
                     _vm._v(" "),
                     _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
@@ -19971,7 +20030,126 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c("div", { staticClass: "uk-card-body" }, [
+              _c("p", [_vm._v("・Explanations")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom"
+                },
+                [_vm._v("Add explanations")]
+              ),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "uk-child-width-1-2 uk-text-center uk-grid-small ",
+                  attrs: { "uk-grid": "" }
+                },
+                [
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "uk-button uk-button-default uk-width-1-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.answer(_vm.choice[0].id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.choice[0].item_name) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "uk-button uk-button-default uk-width-1-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.answer(_vm.choice[1].id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.choice[1].item_name) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "uk-child-width-1-2 uk-text-center uk-grid-small",
+                  attrs: { "uk-grid": "" }
+                },
+                [
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "uk-button uk-button-default uk-width-1-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.answer(_vm.choice[2].id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.choice[2].item_name) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "uk-button uk-button-default uk-width-1-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.answer(_vm.choice[3].id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.choice[3].item_name) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]),
             _vm._v(" "),
             _c("div")
           ]
@@ -19986,83 +20164,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-card-body" }, [
-      _c("p", [_vm._v("・Explanations")]),
+    return _c("ul", { staticClass: "uk-list　uk-list-divider" }, [
+      _c("li", [_vm._v("\n                        あ\n                    ")]),
       _vm._v(" "),
-      _c("ul", { staticClass: "uk-list　uk-list-divider" }, [
-        _c("li", [
-          _vm._v("\n                        あ\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("li", [_vm._v("\n                        い\n                    ")])
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom"
-        },
-        [_vm._v("Add explanations")]
-      ),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small ",
-          attrs: { "uk-grid": "" }
-        },
-        [
-          _c("div", [
-            _c(
-              "button",
-              { staticClass: "uk-button uk-button-default uk-width-1-1" },
-              [_vm._v("Button")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c(
-              "button",
-              { staticClass: "uk-button uk-button-default uk-width-1-1" },
-              [_vm._v("Button")]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small",
-          attrs: { "uk-grid": "" }
-        },
-        [
-          _c("div", [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
-              },
-              [_vm._v("Button")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
-              },
-              [_vm._v("Button")]
-            )
-          ])
-        ]
-      )
+      _c("li", [_vm._v("\n                        い\n                    ")])
     ])
   }
 ]
