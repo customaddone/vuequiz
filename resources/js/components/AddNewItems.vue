@@ -112,8 +112,12 @@ export default {
   mounted: function () {
     axios.get('/api/authUser'
     ).then((response) => {
-      alert(response.data);
-      }).catch((response) => {
+      if  (!response.data) {
+        alert('ログインしてください');
+        // AddNewItemsの画面が出る前にhomeに飛ばしたい
+        location.href(this.$router.push("/"));
+      };
+    }).catch((response) => {
       console.log(response);
     })
     this.indexItems();

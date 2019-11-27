@@ -14,10 +14,10 @@
                 </li>
                 <li>
                     @auth
-                        <a href="">name: {{ Auth::user()->name }}</a>
+                        <a>name: {{ Auth::user()->name }}</a>
                     @endauth
                     @guest
-                        <a href="">guest</a>
+                        <a>guest</a>
                     @endguest
                 </li>
             </ul>

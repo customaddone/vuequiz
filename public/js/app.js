@@ -1947,8 +1947,16 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     axios.get('/api/authUser').then(function (response) {
-      alert(response.data);
+      if (!response.data) {
+        alert('ログインしてください'); // AddNewItemsの画面が出る前にhomeに飛ばしたい
+
+        location.href(_this.$router.push("/"));
+      }
+
+      ;
     })["catch"](function (response) {
       console.log(response);
     });
@@ -1957,88 +1965,88 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     // アイテムの追加、編集、削除
     indexItems: function indexItems() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/items').then(function (response) {
-        _this.items = response.data;
+        _this2.items = response.data;
       })["catch"](function (response) {
         console.log(response);
       });
     },
     addItem: function addItem() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.post('/api/items', {
         user_id: 1,
         item_name: this.addItemName
       }).then(function (response) {
-        _this2.indexItems();
+        _this3.indexItems();
 
-        _this2.addItemName = "";
+        _this3.addItemName = "";
       })["catch"](function (response) {
         console.log(response);
       });
     },
     editItem: function editItem(id, name) {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.post('/api/items/' + id, {
         item_name: name
       }).then(function (response) {
-        _this3.indexItems();
+        _this4.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
     },
     deleteItem: function deleteItem(id) {
-      var _this4 = this;
+      var _this5 = this;
 
       axios["delete"]('/api/items/' + id).then(function () {
-        _this4.indexItems();
+        _this5.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
     },
     // アイテムに対する説明の追加、編集、削除
     indexExplanations: function indexExplanations() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get('/api/explanations').then(function (response) {
-        _this5.explanations = response.data;
+        _this6.explanations = response.data;
       })["catch"](function (response) {
         console.log(response);
       });
     },
     addExplanation: function addExplanation(item_id) {
-      var _this6 = this;
+      var _this7 = this;
 
       axios.post('/api/explanations', {
         item_id: item_id,
         explanation: this.addExplanationData
       }).then(function (response) {
-        _this6.indexItems();
+        _this7.indexItems();
 
-        _this6.addExplanationData = "";
+        _this7.addExplanationData = "";
       })["catch"](function (response) {
         console.log(response);
       });
     },
     editExplanation: function editExplanation(id, explanation) {
-      var _this7 = this;
+      var _this8 = this;
 
       axios.post('/api/explanations/' + id, {
         explanation: explanation
       }).then(function (response) {
-        _this7.indexItems();
+        _this8.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
     },
     deleteExplanation: function deleteExplanation(id) {
-      var _this8 = this;
+      var _this9 = this;
 
       axios["delete"]('/api/explanations/' + id).then(function () {
-        _this8.indexItems();
+        _this9.indexItems();
       })["catch"](function (response) {
         console.log(response);
       });
