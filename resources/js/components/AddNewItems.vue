@@ -110,6 +110,12 @@ export default {
   },
 
   mounted: function () {
+    axios.get('/api/authUser'
+    ).then((response) => {
+      alert(response.data);
+      }).catch((response) => {
+      console.log(response);
+    })
     this.indexItems();
   },
 

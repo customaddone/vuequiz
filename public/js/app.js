@@ -1947,6 +1947,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    axios.get('/api/authUser').then(function (response) {
+      alert(response.data);
+    })["catch"](function (response) {
+      console.log(response);
+    });
     this.indexItems();
   },
   methods: {

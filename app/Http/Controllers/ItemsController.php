@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsController extends Controller
 {
@@ -43,6 +44,10 @@ class ItemsController extends Controller
             array_push($items, $items_group);
         }
         return $items;
+    }
+
+    public function authUser() {
+        return Auth::user();
     }
 
 }
