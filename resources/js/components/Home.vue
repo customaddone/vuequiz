@@ -14,7 +14,9 @@
 
             <!-- 中央の文章 -->
             <p class="uk-text-lead uk-text-primary" style="font-family: 'Pacifico', cursive;">
-                This is a quiz!
+                Quiz: 四択クイズ開始
+                <br >
+                Item: 問題の択を編集（ログイン要）
             </p>
 
             <!-- リンク先ボタン -->

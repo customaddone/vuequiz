@@ -37791,14 +37791,7 @@ var render = function() {
           _vm._v(" "),
           _c("p", { staticStyle: { padding: "80px" } }),
           _vm._v(" "),
-          _c(
-            "p",
-            {
-              staticClass: "uk-text-lead uk-text-primary",
-              staticStyle: { "font-family": "'Pacifico', cursive" }
-            },
-            [_vm._v("\n                This is a quiz!\n            ")]
-          ),
+          _vm._m(0),
           _vm._v(" "),
           _c(
             "div",
@@ -37847,7 +37840,27 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        staticClass: "uk-text-lead uk-text-primary",
+        staticStyle: { "font-family": "'Pacifico', cursive" }
+      },
+      [
+        _vm._v("\n                Quiz: 四択クイズ開始\n                "),
+        _c("br"),
+        _vm._v(
+          "\n                Item: 問題の択を編集（ログイン要）\n            "
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
