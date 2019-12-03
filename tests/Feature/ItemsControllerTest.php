@@ -46,7 +46,12 @@ class ItemsControllerTest extends TestCase
                           ->first()
                           ->value('id');
         $this->assertNotEmpty($item->edit($editRequest, $testDataId));
+        $this->assertEquals(Item::find($testDataId)->item_name, 'dummyTitle');
 
         Item::where('item_name', 'dummyTitle')->delete();
+
+        // クイズ用アイテム生成のテスト
+        $this->assertEquals(count($item->items10()), 10);
+
     }
 }
