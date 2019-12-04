@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Http\Request;
@@ -13,11 +13,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemsControllerTest extends TestCase
 {
+    // use DatabaseTransactions;でテストの際データベースを初期化
+    use DatabaseTransactions;
     /**
      * A basic feature test example.
      *
      * @return void
      */
+
+    public function setUp(): void
+    {
+        parent::setUp();
+    }
+
     public function testExample()
     {
         // コントローラーのアクションを使いたい時はItemsControllerインスタンスを生成する
@@ -47,8 +55,6 @@ class ItemsControllerTest extends TestCase
                           ->value('id');
         $this->assertNotEmpty($item->edit($editRequest, $testDataId));
         $this->assertEquals(Item::find($testDataId)->item_name, 'dummyTitle');
-
-        Item::where('item_name', 'dummyTitle')->delete();
 
         // クイズ用アイテム生成のテスト
         $this->assertEquals(count($item->items10()), 10);
