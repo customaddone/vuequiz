@@ -3,14 +3,14 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3.9-stretch-node-browsers
-      - image: circleci/mysql:5.7.23
+      - image: circleci/mysql:5.7
     environment:
       - APP_DEBUG: true
       - APP_ENV: testing
       - APP_KEY: base64:YlIJx6uH3OUb3hxN+PAiJKlC+EGZ2KYi8VHxsfdJpLk=
       - DB_CONNECTION: circleci
 
-    working_directory: ~/repo
+    working_directory: ~/sampleapp/laravel/vuequiz
 
     steps:
       - checkout
@@ -43,3 +43,8 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run:
+          name: Unittest
+          working_directory: laravel
+          command: vendor/bin/phpunit
