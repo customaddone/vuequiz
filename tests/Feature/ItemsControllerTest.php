@@ -56,6 +56,22 @@ class ItemsControllerTest extends TestCase
         $this->assertNotEmpty($item->edit($editRequest, $testDataId));
         $this->assertEquals(Item::find($testDataId)->item_name, 'dummyTitle');
 
+        // apiのテスト
+        $this->get('api/items')
+             ->assertOk()
+             ->assertJsonCount(1) // 返されるJsonの配列の数
+             ->assertJsonFragment([ # レスポンスJSON に以下の値を含む
+                'item_name' => 'dummyTitle',
+            ]);
+        $this->post('api/items', [
+                'user_id' => '1',
+                'item_name' => 'title',
+             ])
+             ->assertstatus(201) // 201はcreated
+             ->assertJsonFragment([ # レスポンスJSON に以下の値を含む
+                'item_name' => 'title',
+             ]);
+
         // クイズ用アイテム生成のテスト
         $this->assertEquals(count($item->items10()), 10);
 
