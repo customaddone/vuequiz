@@ -23,7 +23,7 @@ jobs:
         - MYSQL_DATABASE=circleci
         - MYSQL_USER=circleci
         - MYSQL_PASSWORD=circleci
-      - image: selenium/standalone-chrome:3.1.0
+      - image: circleci/node:7.10-browsers
 
     environment:
       - APP_DEBUG: true
