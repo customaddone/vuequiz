@@ -21,7 +21,7 @@ jobs:
         - MYSQL_USER=circleci
         - MYSQL_PASSWORD=circleci
 
-      environment:
+    environment:
       - APP_DEBUG: true
       - APP_ENV: testing
       - APP_KEY: base64:YlIJx6uH3OUb3hxN+PAiJKlC+EGZ2KYi8VHxsfdJpLk=
