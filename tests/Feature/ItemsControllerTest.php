@@ -73,7 +73,7 @@ class ItemsControllerTest extends TestCase
              ]);
 
         // クイズ用アイテム生成のテスト
-        $this->assertEquals(count($item->items10()), 100);
+        $this->assertEquals(count($item->items10()), 10);
 
     }
 }

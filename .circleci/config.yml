@@ -1,7 +1,10 @@
 # PHP CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
-#
+# １ circleciのサイトに行き、githubで認証
+# ２ vuequiz（プロジェクト直下）に.circleciディレクトリを生成
+# ３ .circleci直下にconfig.ymlファイルを生成
+# ４ config/database.phpにテストデータ用設定を書く
 version: 2
 jobs:
   build:
@@ -73,3 +76,4 @@ jobs:
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
       - run: ./vendor/bin/phpunit
+      - run: php artisan dusk
