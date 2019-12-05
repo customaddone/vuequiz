@@ -55,7 +55,7 @@ jobs:
           command: |
               sudo -E docker-php-ext-install pdo_mysql
               sudo apt update
-              sudo apt-get install php-mysqlnd
+              sudo apt-get install php-mysql
       - run: php artisan migrate --env=testing --database=circleci --force
 
       # run tests with phpunit or codecept
