@@ -67,6 +67,7 @@ jobs:
             - node_modules
 
       # prepare the database
+      # 真面目ににforce使いたくないな
       - run: php artisan migrate --force
 
       # run tests with phpunit or codecept
