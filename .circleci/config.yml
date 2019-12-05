@@ -45,14 +45,6 @@ jobs:
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
       - run: sudo docker-php-ext-install pdo_mysql
-      - run: mkdir test-reports
-      - run:
-          name: Download Selenium
-          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run:
-          name: Start Selenium
-          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-          background: true
 
       # Download and cache dependencies
       - restore_cache:
@@ -81,6 +73,7 @@ jobs:
       # prepare the database
       # 真面目ににforce使いたくないな
       - run: php artisan migrate --force
+      - run: php artisan dusk:chrome-driver 72
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
