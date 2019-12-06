@@ -24,7 +24,7 @@ jobs:
         - MYSQL_USER=circleci
         - MYSQL_PASSWORD=circleci
       - image: circleci/node:7.10-browsers
-      - image: selenium
+      - image: selenium/standalone-chrome
 
     environment:
       - APP_DEBUG: true
@@ -50,7 +50,7 @@ jobs:
       - run: docker network create grid
       - run:
           name: install selenium hub
-          command: docker run -d -p 4444:4444 selenium/standalone-chrome
+          command: docker-compose -d -p 4444:4444 selenium
       # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
       - run: composer install -n --prefer-dist
       - run:
