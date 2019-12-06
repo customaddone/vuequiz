@@ -88,5 +88,6 @@ jobs:
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
+      - run: docker ps
       - run: ./vendor/bin/phpunit
       - run: php artisan dusk
