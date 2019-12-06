@@ -47,6 +47,8 @@ abstract class DuskTestCase extends BaseTestCase
             '--window-size=1920,1080',
         ]);
 
+        // circleciで使う時はhostをlocalhostに
+        // workspaceで使う時はseleniumに
         return RemoteWebDriver::create(
             'http://localhost:4444/wd/hub', DesiredCapabilities::chrome()->setCapability(
                 ChromeOptions::CAPABILITY, $options
