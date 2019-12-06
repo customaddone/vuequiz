@@ -47,15 +47,11 @@ jobs:
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
       - run: sudo docker-php-ext-install pdo_mysql
-      - run: docker network create grid
       - run:
           name: install selenium hub
           command: docker run -d -p 4444:4444 selenium/standalone-chrome
       # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
       - run: composer install -n --prefer-dist
-      - run:
-          name: install selenium-node
-          command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome
       - run:
           name: install-npm
           command: npm install
@@ -88,6 +84,5 @@ jobs:
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
-      - run: docker ps
       - run: ./vendor/bin/phpunit
       - run: php artisan dusk
