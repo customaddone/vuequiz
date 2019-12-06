@@ -50,7 +50,7 @@ jobs:
       - run: docker network create grid
       - run:
           name: install selenium hub
-          command: docker-compose -d -p 4444:4444 selenium
+          command: docker-compose up -d -p 4444:4444 selenium
       # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
       - run: composer install -n --prefer-dist
       - run:
