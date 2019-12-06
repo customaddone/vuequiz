@@ -56,7 +56,7 @@ jobs:
       - run: composer install -n --prefer-dist
       - run:
           name: Start Selenium
-          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+          command: docker build -t circleci/node:7.10-browsers
           background: true
 
       # Download and cache dependencies
