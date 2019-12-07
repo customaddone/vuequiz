@@ -48,8 +48,8 @@ jobs:
       - run: sudo docker-php-ext-install zip
       - run: sudo docker-php-ext-install pdo_mysql
       - run:
-          name: install selenium hub
-          command: docker run -d -p 4444:4444 --hostname="selenium" selenium/standalone-chrome
+          name: run selenium
+          command: docker run -d -p 4444:4444 --add-host=selenium:4444 selenium/standalone-chrome
       # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
       - run: composer install -n --prefer-dist
       - run:
