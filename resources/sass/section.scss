@@ -13,7 +13,7 @@ section {
       right: 0;
       bottom: 0;
       left: 0;
-      border-bottom: 1px solid #999;
+      border-bottom: 1px solid #fff;
     }
 
     &::before {
@@ -25,6 +25,12 @@ section {
     padding: 80px 30px;
     background-color: #fff;
     color: #333;
+
+    h1 {
+      &::before, &::after {
+        border-bottom: 1px solid #888;
+      }
+    }
 
     p {
       margin: 30px 0;
@@ -43,11 +49,14 @@ section {
   }
 
   &.works {
-    background-color: #383634;
     padding: 80px 0;
 
     h1 {
       color: #fff;
+
+      &::before, &::after {
+        border-bottom: 1px solid #fff;
+      }
     }
 
     .works-wrapper {
@@ -71,7 +80,7 @@ section {
       width: 200px;
       padding: 20px;
       border-radius: 4px;
-      background-color: #afa58d;
+      background-color: rgba(111, 134, 214, 0.5);
       color: #fff;
       text-decoration: none; // リンクの下線が表示されなくなる
       letter-spacing: 1px;
@@ -101,6 +110,12 @@ section {
     padding: 80px 0;
     background-color: #fff;
     color: #333;
+
+    h1 {
+      &::before, &::after {
+        border-bottom: 1px solid #888;
+      }
+    }
 
     i {
       width: 150px; // 箱を作る
@@ -160,6 +175,10 @@ section {
   &.contact {
     padding: 80px 0 150px;
 
+    h1 {
+      color: #fff;
+    }
+
     .contact-form {
       width: 50%;
       margin: 50px auto 0;
@@ -171,7 +190,7 @@ section {
         margin-bottom: 10px;
         padding: 15px;
         outline: none; // 青いハイライトが消える
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 1);
         border-radius: 0;
         background-color: rgba(255, 255, 255, 0.05);
         color: #fff;
@@ -190,10 +209,10 @@ section {
         width: 200px;
         margin: 40px auto 0;
         padding: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 1);
         border-radius: 5px;
         background-color: transparent; // 背景色を透明に
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 1);
         cursor: pointer;
 
         &:hover {
@@ -208,7 +227,7 @@ section {
 
     @media (max-width: 720px) {
       padding-bottom: 80px;
-      
+
       .contact-form {
         width: 80%
       }

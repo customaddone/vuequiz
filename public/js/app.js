@@ -37771,96 +37771,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "uk-section-small  uk-text-center",
-      attrs: { "uk-height-viewport": "offset-top: true; offset-bottom: true" }
-    },
-    [
-      _c("div", { staticClass: "uk-width-1-1" }, [
-        _c("div", { staticClass: "uk-container" }, [
-          _c(
-            "h1",
-            {
-              staticClass: "uk-text-primary uk-heading-large",
-              staticStyle: { "font-family": "''" }
-            },
-            [_vm._v("\n                ~Vuequiz~\n            ")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticStyle: { padding: "80px" } }),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "uk-grid-medium uk-flex-inline uk-flex-center uk-grid ",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "uk-first-column" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "uk-border-rounded uk-button\n                        uk-button-default tm-button-default uk-button-large tm-button-large",
-                      attrs: { to: "/quiz" }
-                    },
-                    [_vm._v("Quiz")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "uk-border-rounded uk-button\n                        uk-button-default tm-button-default uk-button-large tm-button-large",
-                      attrs: { to: "/addItems" }
-                    },
-                    [_vm._v("Items")]
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ])
-      ])
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      {
-        staticClass: "uk-text-lead uk-text-primary",
-        staticStyle: { "font-family": "'Pacifico', cursive" }
-      },
+  return _c("section", { staticClass: "mainpage" }, [
+    _c("p", { staticClass: "sub" }, [_vm._v("Web designer's portfolio")]),
+    _vm._v(" "),
+    _c("h1", [_vm._v("HI, MY NAME IS...")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "description" }, [
+      _vm._v("Check out some of my works.")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "buttons" },
       [
-        _vm._v("\n                Quiz: 四択クイズ開始\n                "),
-        _c("br"),
-        _vm._v(
-          "\n                Item: 問題の択を編集（ログイン要）\n            "
+        _c(
+          "router-link",
+          { staticClass: "button", attrs: { to: "/quiz", href: "#about" } },
+          [_vm._v("PLAY QUIZ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "button button-showy",
+            attrs: { to: "/addItems", href: "#contact" }
+          },
+          [_vm._v("ADD ITEMS")]
         )
-      ]
+      ],
+      1
     )
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

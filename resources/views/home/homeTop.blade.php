@@ -1,15 +1,15 @@
 @extends('layouts.layouts')
 
 @section('content')
-    <header class="header">
-        <p class="sub">Web designer's portfolio</p>
-        <h1>HI, MY NAME IS...</h1>
-        <p class="description">Check out some of my works.</p>
-        <div class="buttons">
-            <a class="button" href="#about">LEARN MORE</a>
-            <a class="button button-showy" href="#contact">SEND MESSAGE</a>
-        </div>
-    </header>
+    @component('components.navbar')
+    @endcomponent
+    
+    <div id="home">
+        <router-view></router-view>
+    </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
     <section class="about" id="about">
         <h1>ABOUT ME</h2>
         <p>

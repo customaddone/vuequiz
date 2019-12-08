@@ -1,20 +1,89 @@
-.header {
+header {
+  width: 100%;
+  padding: 0 0 10px;
+}
+
+header button {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+header .login-form {
+  width: 100%;
+  padding: 0 40px;
+  display: table;
+}
+
+header .login-form p {
+  font-size: 2rem;
+}
+
+header .login-form i {
+  width: 100px;
+  height: 100px;
+  font-size: 5rem;
+  line-height: 92px;
+}
+
+header .login-form a {
+  color: #fff;
+}
+
+header .login-form .login-button {
+  display: table-cell;
+  float: left;
+}
+
+header .login-form .login-button p {
+  display: inline;
+}
+
+header .login-form .login-user {
+  padding: 20px 35px 0 0;
+  display: table-cell;
+  float: right;
+}
+
+@media (max-width: 720px) {
+  header .login-form {
+    padding: 0;
+  }
+
+  header .login-form i {
+    width: 70px;
+    font-size: 3rem;
+  }
+
+  header .login-form .login-user {
+    padding: 20px 25px 0 0;
+  }
+}
+
+section.mainpage {
   padding: 170px 30px 80px;
 }
 
-.header h1 {
+section.mainpage h1 {
+  color: #fff;
   margin: 50px 0 40px;
   font-size: 7.6rem;
 }
 
-.header p.sub {
+section.mainpage p.sub {
   margin: 0 0 30px;
   letter-spacing: 1px;
   font-size: 2.2rem;
 }
 
-.header p.sub::before,
-.header p.sub::after {
+section.mainpage p.sub::before,
+section.mainpage p.sub::after {
   content: "";
   display: inline-block;
   width: 140px;
@@ -24,58 +93,58 @@
   vertical-align: middle;
 }
 
-.header p.description {
+section.mainpage p.description {
   margin-bottom: 50px;
-  color: #888;
+  color: #fff;
   font-size: 1.6rem;
 }
 
-.header .button {
+section.mainpage .button {
   display: inline-block;
   width: 200px;
   padding: 20px;
   border-radius: 4px;
-  background-color: #afa58d;
+  background-color: rgba(111, 134, 214, 0.5);
   color: #fff;
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 1.2rem;
 }
 
-.header .button:hover {
+section.mainpage .button:hover {
   opacity: 0.9;
 }
 
-.header .button-showy {
-  background-color: #f1b400;
+section.mainpage .button-showy {
+  background-color: rgba(250, 113, 205, 0.5);
 }
 
 @media (max-width: 720px) {
-  .header {
+  section.mainpage {
     padding-top: 60px;
   }
 
-  .header h1 {
+  section.mainpage h1 {
     margin-top: 35px;
     font-size: 5rem;
   }
 
-  .header p.sub {
+  section.mainpage p.sub {
     font-size: 1.7rem;
   }
 
-  .header p.sub::before,
-  .header p.sub::after {
+  section.mainpage p.sub::before,
+  section.mainpage p.sub::after {
     display: block;
     width: 80%;
     margin: 10px auto;
   }
 
-  .header .button {
+  section.mainpage .button {
     margin-top: 5px;
   }
 
-  .header .button:hover {
+  section.mainpage .button:hover {
     opacity: 1;
   }
 }
@@ -96,7 +165,7 @@ section h1::after {
   right: 0;
   bottom: 0;
   left: 0;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #fff;
 }
 
 section h1::before {
@@ -107,6 +176,11 @@ section.about {
   padding: 80px 30px;
   background-color: #fff;
   color: #333;
+}
+
+section.about h1::before,
+section.about h1::after {
+  border-bottom: 1px solid #888;
 }
 
 section.about p {
@@ -125,12 +199,16 @@ section.about p {
 }
 
 section.works {
-  background-color: #383634;
   padding: 80px 0;
 }
 
 section.works h1 {
   color: #fff;
+}
+
+section.works h1::before,
+section.works h1::after {
+  border-bottom: 1px solid #fff;
 }
 
 section.works .works-wrapper {
@@ -154,7 +232,7 @@ section.works .button {
   width: 200px;
   padding: 20px;
   border-radius: 4px;
-  background-color: #afa58d;
+  background-color: rgba(111, 134, 214, 0.5);
   color: #fff;
   text-decoration: none;
   letter-spacing: 1px;
@@ -184,6 +262,11 @@ section.skills {
   padding: 80px 0;
   background-color: #fff;
   color: #333;
+}
+
+section.skills h1::before,
+section.skills h1::after {
+  border-bottom: 1px solid #888;
 }
 
 section.skills i {
@@ -244,6 +327,10 @@ section.contact {
   padding: 80px 0 150px;
 }
 
+section.contact h1 {
+  color: #fff;
+}
+
 section.contact .contact-form {
   width: 50%;
   margin: 50px auto 0;
@@ -256,7 +343,7 @@ section.contact .contact-form textarea {
   margin-bottom: 10px;
   padding: 15px;
   outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid white;
   border-radius: 0;
   background-color: rgba(255, 255, 255, 0.05);
   color: #fff;
@@ -275,10 +362,10 @@ section.contact .contact-form input[type=submit] {
   width: 200px;
   margin: 40px auto 0;
   padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid white;
   border-radius: 5px;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: white;
   cursor: pointer;
 }
 
@@ -316,7 +403,9 @@ html {
 }
 
 body {
-  background-color: #151515;
+  margin: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#eea2a2), color-stop(19%, #bbc1bf), color-stop(42%, #57c6e1), color-stop(79%, #b49fda), to(#7ac5d8));
+  background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
   background-size: cover;
   color: #fff;
   text-align: center;
