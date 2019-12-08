@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue-router@3.0.1"></script>
 
+    <!-- CSS -->
+    <link href="{{ asset('css/sample.css') }}" rel="stylesheet">
 </head>
 <body>
     @yield('content')
