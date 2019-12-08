@@ -1,0 +1,217 @@
+section {
+  h1 {
+    display: inline-block; // 線が文字の幅以上に広がらないように
+    position: relative;
+    margin: 30px 0 15px;
+    padding-bottom: 15px;
+    letter-spacing: 2px;
+    font-size: 4rem;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid #999;
+    }
+
+    &::before {
+      bottom: 5px;
+    }
+  }
+
+  &.about {
+    padding: 80px 30px;
+    background-color: #fff;
+    color: #333;
+
+    p {
+      margin: 30px 0;
+      line-height: 2.5; // 行の高さ
+    }
+
+    @media (max-width: 720px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        line-height: 1.8;
+      }
+    }
+  }
+
+  &.works {
+    background-color: #383634;
+    padding: 80px 0;
+
+    h1 {
+      color: #fff;
+    }
+
+    .works-wrapper {
+      display: table; // table要素を利用できる 要素を高さを揃えて横に並べたりできる
+      width: 100%;
+      margin-top: 60px;
+      table-layout: fixed; // 各要素の横幅を均等に
+    }
+
+    .work-box {
+      display: table-cell; // tableの子要素
+    }
+
+    .work-image {
+      display: block;
+      width: 100%;
+    }
+
+    .button {
+      display: inline-block;
+      width: 200px;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: #afa58d;
+      color: #fff;
+      text-decoration: none; // リンクの下線が表示されなくなる
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    @media (max-width: 720px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .works-wrapper,.work-box {
+        display: block;
+      }
+
+      .work-image {
+        display: none;
+      }
+    }
+  }
+
+  &.skills {
+    padding: 80px 0;
+    background-color: #fff;
+    color: #333;
+
+    i {
+      width: 150px; // 箱を作る
+      height: 150px;
+      margin-bottom: 30px;
+      border: 4px solid;
+      border-radius: 50%; // 丸める
+      color: #f1b400;
+      font-size: 8rem;
+      line-height: 142px;
+    }
+
+    p {
+      margin: 0 20px;
+      line-height: 2;
+    }
+
+    .skill-title {
+      margin: 0 20px 20px;
+      font-size: 2rem;
+    }
+
+    .skill-wrapper {
+      display: table;
+      width: 80%;
+      margin: 50px auto 0;
+      table-layout: fixed;
+    }
+
+    .skill-box {
+      display: table-cell;
+    }
+
+    @media (max-width: 720px) {
+      p {
+        margin: 0;
+      }
+
+      i {
+        width: 100px;
+        height: 100px;
+        font-size: 5rem;
+        line-height: 92px;
+      }
+
+      .skills-wrapper,
+      .skill-box {
+        display: block; // display: tableを解除
+      }
+
+      .skill-box {
+        margin: 40px auto;
+      }
+    }
+  }
+
+  &.contact {
+    padding: 80px 0 150px;
+
+    .contact-form {
+      width: 50%;
+      margin: 50px auto 0;
+
+      input[type=text],
+      textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 15px;
+        outline: none; // 青いハイライトが消える
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.05);
+        color: #fff;
+      }
+
+      textarea {
+        height: 150px;
+
+        &:focus {
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset; // insetで内側へ影
+        }
+      }
+
+      input[type=submit] {
+        display: block;
+        width: 200px;
+        margin: 40px auto 0;
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+        background-color: transparent; // 背景色を透明に
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &:focus {
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+        }
+      }
+    }
+
+    @media (max-width: 720px) {
+      padding-bottom: 80px;
+      
+      .contact-form {
+        width: 80%
+      }
+    }
+  }
+}

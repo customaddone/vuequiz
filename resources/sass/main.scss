@@ -1,8 +1,9 @@
 @import 'header.scss';
+@import 'section.scss';
+@import 'footer.scss';
 
 $background-color: #151515;
 $color: #fff;
-$margin: 10px 20px 30px 40px;
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -19,4 +20,8 @@ body {
   text-align: center;
   font-size: 1.4rem; // 親要素のfont-sizeを基準に大きさを計算
   font-family: "Hiragino KaKu Gothic ProN", Meiryo, sans-serif;
+
+  @media (max-width: 720px) {
+    font-size: 1.3rem;
+  }
 }
