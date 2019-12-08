@@ -25,8 +25,6 @@ jobs:
         - MYSQL_PASSWORD=circleci
       - image: circleci/node:7.10-browsers
       - image: selenium/standalone-chrome
-        environment:
-        - hostname=selenium
 
     environment:
       - APP_DEBUG: true
@@ -81,9 +79,7 @@ jobs:
             - node_modules
 
       # prepare the database
-      # 真面目ににforce使いたくないな
       - run: php artisan migrate --force
-      - run: docker network inspect bridge
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
