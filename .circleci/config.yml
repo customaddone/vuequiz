@@ -25,6 +25,8 @@ jobs:
         - MYSQL_PASSWORD=circleci
       - image: circleci/node:7.10-browsers
       - image: selenium/standalone-chrome
+        environment:
+        - hostname=selenium
 
     environment:
       - APP_DEBUG: true
@@ -49,7 +51,7 @@ jobs:
       - run: sudo docker-php-ext-install pdo_mysql
       - run:
           name: run selenium
-          command: docker run -d -p 4444:4444 --add-host=selenium:4444 selenium/standalone-chrome
+          command: docker run -d -p 4444:4444 selenium/standalone-chrome
       # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
       - run: composer install -n --prefer-dist
       - run:
@@ -81,6 +83,7 @@ jobs:
       # prepare the database
       # 真面目ににforce使いたくないな
       - run: php artisan migrate --force
+      - run: docker network inspect bridge
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
