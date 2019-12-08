@@ -1,0 +1,22 @@
+@import 'header.scss';
+
+$background-color: #151515;
+$color: #fff;
+$margin: 10px 20px 30px 40px;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $background-color;
+  background-size: cover;
+  color: $color;
+  text-align: center;
+  font-size: 1.4rem; // 親要素のfont-sizeを基準に大きさを計算
+  font-family: "Hiragino KaKu Gothic ProN", Meiryo, sans-serif;
+}

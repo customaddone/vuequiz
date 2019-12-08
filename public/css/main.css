@@ -1,0 +1,71 @@
+.header {
+  padding: 170px 30px 80px;
+}
+
+.header h1 {
+  margin: 50px 0 40px;
+  font-size: 7.6rem;
+}
+
+.header p.sub {
+  margin: 0 0 30px;
+  letter-spacing: 1px;
+  font-size: 2.2rem;
+}
+
+.header p.sub::before,
+.header p.sub::after {
+  content: "";
+  display: inline-block;
+  width: 140px;
+  height: 2px;
+  margin: 0 30px;
+  background-color: #fff;
+  vertical-align: middle;
+}
+
+.header p.description {
+  margin-bottom: 50px;
+  color: #888;
+  font-size: 1.6rem;
+}
+
+.header .button {
+  display: inline-block;
+  width: 200px;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #afa58d;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.header .button:hover {
+  opacity: 0.9;
+}
+
+.header .button-showy {
+  background-color: #f1b400;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #151515;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: "Hiragino KaKu Gothic ProN", Meiryo, sans-serif;
+}
+

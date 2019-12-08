@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/vue-router@3.0.1"></script>
 
     <!-- CSS -->
-    <link href="{{ asset('css/sample.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
     @yield('content')
