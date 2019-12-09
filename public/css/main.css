@@ -3,18 +3,6 @@ header {
   padding: 0 0 10px;
 }
 
-header button {
-  color: #fff;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
 header .login-form {
   width: 100%;
   padding: 0 40px;
@@ -62,7 +50,7 @@ header .login-form .login-user {
   }
 
   header .login-form .login-user {
-    padding: 20px 25px 0 0;
+    padding: 18px 25px 0 0;
   }
 }
 
@@ -149,6 +137,99 @@ section.mainpage .button-showy {
   }
 }
 
+section.quiz h1 {
+  color: #fff;
+}
+
+section.quiz h1::before,
+section.quiz h1::after {
+  border-bottom: 1px solid #fff;
+}
+
+section.quiz h2 {
+  font-size: 2.5rem;
+}
+
+section.quiz .true_or_false_board {
+  text-align: start;
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 80%;
+}
+
+section.quiz .true_or_false_board .float-right {
+  float: right;
+}
+
+section.quiz .explanation_board {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  border: solid 1px #fff;
+}
+
+section.quiz .explanation_board .explanation_text {
+  text-align: left;
+  padding: 0 50px;
+}
+
+section.quiz .answers-wrapper {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 50px;
+}
+
+section.quiz .answers-box {
+  display: table-cell;
+}
+
+section.quiz .button {
+  display: inline-block;
+  width: 200px;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: rgba(111, 134, 214, 0.5);
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+section.quiz .button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 960px) {
+  section.quiz h1 {
+    font-size: 2.5rem;
+    margin: 10px;
+  }
+
+  section.quiz h2 {
+    font-size: 1.8rem;
+    margin: 10px;
+  }
+
+  section.quiz .explanation_board {
+    width: 95%;
+  }
+
+  section.quiz .explanation_board .explanation_text {
+    padding: 0 20px;
+  }
+
+  section.quiz .explanation_board .answers-box {
+    display: inline-block;
+  }
+
+  section.quiz .button {
+    width: 150px;
+    margin: 5px;
+  }
+}
+
 section h1 {
   display: inline-block;
   position: relative;
@@ -170,6 +251,74 @@ section h1::after {
 
 section h1::before {
   bottom: 5px;
+}
+
+section.contact {
+  padding: 80px 0 150px;
+}
+
+section.contact h1 {
+  color: #fff;
+}
+
+section.contact .contact-form {
+  width: 50%;
+  margin: 50px auto 0;
+}
+
+section.contact .contact-form input[type=text],
+section.contact .contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px;
+  outline: none;
+  border: 1px solid white;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+section.contact .contact-form textarea {
+  height: 150px;
+}
+
+section.contact .contact-form textarea:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+}
+
+section.contact .contact-form input[type=submit] {
+  display: block;
+  width: 200px;
+  margin: 40px auto 0;
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+section.contact .contact-form input[type=submit]:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+section.contact .contact-form input[type=submit]:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+}
+
+@media (max-width: 720px) {
+  section.contact {
+    padding-bottom: 80px;
+  }
+
+  section.contact h1 {
+    font-size: 2.5rem;
+  }
+
+  section.contact .contact-form {
+    width: 80%;
+  }
 }
 
 section.about {
@@ -209,6 +358,10 @@ section.works h1 {
 section.works h1::before,
 section.works h1::after {
   border-bottom: 1px solid #fff;
+}
+
+section.works h2 {
+  font-size: 2.5rem;
 }
 
 section.works .works-wrapper {
@@ -302,6 +455,10 @@ section.skills .skill-box {
 }
 
 @media (max-width: 720px) {
+  section.skills h1 {
+    font-size: 2.5rem;
+  }
+
   section.skills p {
     margin: 0;
   }
@@ -382,6 +539,10 @@ section.contact .contact-form input[type=submit]:focus {
     padding-bottom: 80px;
   }
 
+  section.contact h1 {
+    font-size: 2.5rem;
+  }
+
   section.contact .contact-form {
     width: 80%;
   }
@@ -417,5 +578,17 @@ body {
   body {
     font-size: 1.3rem;
   }
+}
+
+button {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 

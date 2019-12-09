@@ -3,7 +3,7 @@
 @section('content')
     @component('components.navbar')
     @endcomponent
-    
+
     <div id="home">
         <router-view></router-view>
     </div>
@@ -100,13 +100,5 @@
     <footer class="footer">
         a sample site
     </footer>
-    <!-- @component('components.navbar')
-    @endcomponent
-
-    <div id="home">
-        <router-view></router-view>
-    </div>
-
-    <script src="{{ asset('js/app.js') }}"></script> -->
 
 @endsection

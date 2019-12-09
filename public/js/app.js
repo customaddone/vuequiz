@@ -1843,100 +1843,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2117,34 +2023,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2154,7 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
       choice: [],
       firstAnswer: true,
       rightAndWrong: true,
-      activeColor: "black",
+      activeColor: "white",
       quizCounter: 1,
       score: 100,
       totalScore: 0
@@ -2198,7 +2076,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this2.indexItems10();
 
-          _this2.activeColor = "black";
+          _this2.activeColor = "white";
           _this2.firstAnswer = true;
           _this2.nameHidden = true;
 
@@ -37332,424 +37210,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "uk-container" }, [
-    _c(
-      "div",
-      { staticClass: "uk-section-xsmall" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass:
-              "uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom",
-            attrs: { to: "/quiz" }
-          },
-          [_vm._v("PLAY QUIZ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "uk-card uk-card-default uk-border-rounded" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "uk-card-body" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.addItemName,
-                    expression: "addItemName"
-                  }
-                ],
-                staticClass: "uk-input uk-width-2-3",
-                attrs: {
-                  name: "add_value",
-                  type: "text",
-                  placeholder: "・Add item name"
-                },
-                domProps: { value: _vm.addItemName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.addItemName = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "uk-button\n                    uk-button-primary uk-float-right uk-border-rounded",
-                  attrs: { name: "add_button" },
-                  on: { click: _vm.addItem }
-                },
-                [_vm._v("ADD")]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "uk-grid-small uk-margin-bottom",
-                attrs: { "uk-grid": "" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "uk-width-expand",
-                    attrs: { "uk-leader": "" }
-                  },
-                  [_vm._v("... Items List")]
-                ),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(_vm.items.length) + " items...")])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "ul",
-                {
-                  staticClass: "uk-list uk-list-striped",
-                  attrs: { "uk-accordion": "" }
-                },
-                _vm._l(_vm.items, function(item, index) {
-                  return _c("li", { key: index }, [
-                    _c("button", {
-                      staticClass: "uk-margin-left uk-logo uk-float-right",
-                      attrs: {
-                        dusk: "trash",
-                        "uk-icon": "icon: trash; ratio: 1.5"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.deleteItem(item.id)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("button", {
-                      staticClass: "uk-margin-left uk-logo uk-float-right",
-                      attrs: {
-                        dusk: "edit",
-                        "uk-toggle": "target: #item-edit",
-                        "uk-icon": "icon: pencil; ratio: 1.5"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "modal",
-                        attrs: { id: "item-edit", "uk-modal": "" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "uk-modal-dialog uk-modal-body" },
-                          [
-                            _c("h2", { staticClass: "uk-modal-title" }, [
-                              _vm._v("Edit")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "uk-text-right" }, [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: item.item_name,
-                                    expression: "item.item_name"
-                                  }
-                                ],
-                                staticClass:
-                                  "uk-input uk-width-expand uk-margin-bottom",
-                                attrs: { name: "editvalue", type: "text" },
-                                domProps: { value: item.item_name },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      item,
-                                      "item_name",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "uk-button uk-button-default uk-modal-close",
-                                  attrs: { type: "button" }
-                                },
-                                [_vm._v("Cancel")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "uk-button uk-button-primary uk-modal-close",
-                                  attrs: { name: "editbutton", type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.editItem(
-                                        item.id,
-                                        item.item_name
-                                      )
-                                    }
-                                  }
-                                },
-                                [_vm._v("Save")]
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "uk-accordion-title",
-                        attrs: { href: "#" }
-                      },
-                      [_vm._v("・" + _vm._s(item.item_name))]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "uk-accordion-content" }, [
-                      _c("hr"),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Explanations")]),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        { staticClass: "uk-list　uk-list-divider" },
-                        _vm._l(item.explanations, function(explanation, index) {
-                          return _c("li", { key: index }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "uk-margin-left uk-float-right",
-                                attrs: { dusk: "trash_explanation" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteExplanation(explanation.id)
-                                  }
-                                }
-                              },
-                              [_vm._v("削除")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "uk-margin-left uk-float-right",
-                                attrs: {
-                                  dusk: "edit_explanation",
-                                  "uk-toggle": "target: #explanation-edit"
-                                }
-                              },
-                              [_vm._v("編集")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "modal",
-                                attrs: {
-                                  id: "explanation-edit",
-                                  "uk-modal": ""
-                                }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "uk-modal-dialog uk-modal-body"
-                                  },
-                                  [
-                                    _c(
-                                      "h2",
-                                      { staticClass: "uk-modal-title" },
-                                      [_vm._v("Edit explanation")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "uk-text-right" }, [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: explanation.explanation,
-                                            expression:
-                                              "explanation.explanation"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "uk-input uk-width-expand uk-margin-bottom",
-                                        attrs: {
-                                          name: "editvalue",
-                                          type: "text"
-                                        },
-                                        domProps: {
-                                          value: explanation.explanation
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              explanation,
-                                              "explanation",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "uk-button uk-button-default uk-modal-close",
-                                          attrs: { type: "button" }
-                                        },
-                                        [_vm._v("Cancel")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "uk-button uk-button-primary uk-modal-close",
-                                          attrs: {
-                                            name: "editbutton",
-                                            type: "button"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.editExplanation(
-                                                explanation.id,
-                                                explanation.explanation
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("Save")]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                _vm._s(index + 1) +
-                                  ". " +
-                                  _vm._s(explanation.explanation)
-                              )
-                            ])
-                          ])
-                        }),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.addExplanationData,
-                            expression: "addExplanationData"
-                          }
-                        ],
-                        staticClass: "uk-input uk-width-2-3",
-                        attrs: {
-                          name: "add_explanation",
-                          type: "text",
-                          placeholder: "・Add explanation"
-                        },
-                        domProps: { value: _vm.addExplanationData },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.addExplanationData = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "uk-button\n                                uk-button-primary uk-float-right uk-border-rounded",
-                          attrs: { name: "add_explanation_button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.addExplanation(item.id)
-                            }
-                          }
-                        },
-                        [_vm._v("ADD")]
-                      )
-                    ])
-                  ])
-                }),
-                0
-              )
-            ])
-          ]
-        )
-      ],
-      1
-    )
-  ])
+  return _c("section", { staticClass: "add_items" })
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-card-header" }, [
-      _c(
-        "div",
-        {
-          staticClass: "uk-grid-small uk-flex-middle",
-          attrs: { "uk-grid": "" }
-        },
-        [
-          _c("div", { staticClass: "uk-width-expand" }, [
-            _c("h3", { staticClass: "uk-card-title uk-margin-remove-bottom" }, [
-              _vm._v("Laravel")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "uk-text-meta uk-margin-remove-top" }, [
-              _c("time", { attrs: { datetime: "2016-04-01T19:00" } }, [
-                _vm._v("April 01, 2016")
-              ])
-            ])
-          ])
-        ]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37825,246 +37288,155 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "uk-container" }, [
-    _c("div", { staticClass: "uk-section-xsmall" }, [
-      _vm.quizCounter < 11
-        ? _c("div", [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"
-              },
-              [_vm._v("Quiz")]
+  return _c("section", { staticClass: "quiz" }, [
+    _c("div", { staticClass: "explanation_board" }, [
+      _c("div", { staticClass: "true_or_false_board" }, [
+        _c(
+          "div",
+          { staticClass: "float-right", style: { color: _vm.activeColor } },
+          [
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.rightAndWrong) +
+                "\n            "
             )
-          ])
-        : _c(
-            "div",
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom",
-                  attrs: { to: "/" }
-                },
-                [_vm._v("Show Result")]
-              )
-            ],
-            1
-          ),
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v(
+            "\n                " + _vm._s(_vm.quizCounter) + "/10\n            "
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "uk-card uk-card-default uk-border-rounded" }, [
-        _c("div", { staticClass: "uk-card-header" }, [
+      _c("h1", [_vm._v("QUIZ")]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("What`s this?")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "explanation_text" }, [
+        _c("h2", [_vm._v("Explanation")]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "ul",
+          _vm._l(_vm.correctAnswer.explanations, function(explanation, index) {
+            return _c("li", { key: index }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(explanation.explanation) +
+                  "\n                "
+              )
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "answers-wrapper" }, [
+        _c("div", { staticClass: "answers-box" }, [
           _c(
-            "div",
+            "button",
             {
-              staticClass: "uk-float-right",
-              style: { color: _vm.activeColor }
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.answer(_vm.choice[0].id)
+                }
+              }
             },
             [
               _vm._v(
                 "\n                    " +
-                  _vm._s(_vm.rightAndWrong) +
+                  _vm._s(_vm.choice[0].item_name) +
                   "\n                "
               )
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.quizCounter) +
-                "/10\n                "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "uk-grid-small uk-flex-middle",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", { staticClass: "uk-width-expand uk-text-center" }, [
-                _c(
-                  "h3",
-                  { staticClass: "uk-card-title uk-margin-remove-bottom" },
-                  [
-                    _vm.nameHidden
-                      ? _c("div", [
-                          _vm._v(
-                            "\n                                What's this ?\n                            "
-                          )
-                        ])
-                      : _c("div", [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(_vm.correctAnswer.item_name) +
-                              "\n                            "
-                          )
-                        ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
-                  _vm._v("score: 100")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "uk-text-meta uk-margin-remove" }, [
-                  _vm._v("total score: " + _vm._s(_vm.totalScore))
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("progress", {
-            staticClass: "uk-progress",
-            attrs: { id: "js-progressbar", value: "10", max: "100" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "uk-card-body" }, [
-          _c("p", [_vm._v("・Explanations")]),
-          _vm._v(" "),
-          _c(
-            "ul",
-            { staticClass: "uk-list　uk-list-divider" },
-            _vm._l(_vm.correctAnswer.explanations, function(
-              explanation,
-              index
-            ) {
-              return _c("li", { key: index }, [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(explanation.explanation) +
-                    "\n                    "
-                )
-              ])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom"
-            },
-            [_vm._v("Add explanations")]
-          ),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small ",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "uk-button uk-button-default uk-width-1-1",
-                    on: {
-                      click: function($event) {
-                        return _vm.answer(_vm.choice[0].id)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.choice[0].item_name) +
-                        "\n                        "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "uk-button uk-button-default uk-width-1-1",
-                    on: {
-                      click: function($event) {
-                        return _vm.answer(_vm.choice[1].id)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.choice[1].item_name) +
-                        "\n                        "
-                    )
-                  ]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "uk-child-width-1-2 uk-text-center uk-grid-small",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "uk-button uk-button-default uk-width-1-1",
-                    on: {
-                      click: function($event) {
-                        return _vm.answer(_vm.choice[2].id)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.choice[2].item_name) +
-                        "\n                        "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "uk-button uk-button-default uk-width-1-1",
-                    on: {
-                      click: function($event) {
-                        return _vm.answer(_vm.choice[3].id)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.choice[3].item_name) +
-                        "\n                        "
-                    )
-                  ]
-                )
-              ])
             ]
           )
         ]),
         _vm._v(" "),
-        _c("div")
+        _c("div", { staticClass: "answers-box" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.answer(_vm.choice[0].id)
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.choice[1].item_name) +
+                  "\n                "
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "answers-box" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.answer(_vm.choice[0].id)
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.choice[2].item_name) +
+                  "\n                "
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "answers-box" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.answer(_vm.choice[0].id)
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.choice[3].item_name) +
+                  "\n                "
+              )
+            ]
+          )
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("\n            score: 100"),
+      _c("br"),
+      _vm._v("\n            total score: 1000"),
+      _c("br")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38086,87 +37458,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "uk-section-small  uk-text-center",
-      attrs: { "uk-height-viewport": "offset-top: true; offset-bottom: true" }
-    },
-    [
-      _c("div", { staticClass: "uk-width-1-1" }, [
-        _c("div", { staticClass: "uk-container" }, [
-          _c(
-            "h1",
-            {
-              staticClass: "uk-text-primary uk-heading-large",
-              staticStyle: { "font-family": "''" }
-            },
-            [_vm._v("\n                ~Result~\n            ")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticStyle: { padding: "80px" } }),
-          _vm._v(" "),
-          _c(
-            "p",
-            {
-              staticClass: "uk-text-lead uk-text-primary",
-              staticStyle: { "font-family": "'Pacifico', cursive" }
-            },
-            [
-              _vm._v(
-                "\n                 Your score is " +
-                  _vm._s(_vm.$route.params.totalScore) +
-                  "\n            "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "uk-grid-medium uk-flex-inline uk-flex-center uk-grid ",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "uk-first-column" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "uk-border-rounded uk-button\n                        uk-button-default tm-button-default uk-button-large tm-button-large",
-                      attrs: { to: "/quiz" }
-                    },
-                    [_vm._v("One More")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "uk-border-rounded uk-button\n                        uk-button-default tm-button-default uk-button-large tm-button-large",
-                      attrs: { to: "/addItems" }
-                    },
-                    [_vm._v("Add Items")]
-                  )
-                ],
-                1
-              )
-            ]
-          )
+  return _c("section", { staticClass: "quiz" }, [
+    _c("h1", [_vm._v("Result")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Your score is " + _vm._s(_vm.$route.params.totalScore))]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "answers-wrapper" },
+      [
+        _c("router-link", { staticClass: "button", attrs: { to: "/quiz" } }, [
+          _vm._v("One More")
+        ]),
+        _vm._v(" "),
+        _c("router-link", { staticClass: "button", attrs: { to: "/" } }, [
+          _vm._v("Home")
         ])
-      ])
-    ]
-  )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

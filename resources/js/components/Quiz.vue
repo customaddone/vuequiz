@@ -1,81 +1,53 @@
 <template>
-<div class="uk-container">
-    <div class="uk-section-xsmall">
-        <div v-if="quizCounter < 11">
-            <div class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Quiz</div>
-        </div>
-        <div v-else>
-            <router-link to="/"  class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Show Result</router-link>
-        </div>
-        <div class="uk-card uk-card-default uk-border-rounded">
-            <div class="uk-card-header">
-
-                <!-- タイトル -->
-                <div class="uk-float-right" v-bind:style="{ color: activeColor }">
-                    {{ rightAndWrong }}
-                </div>
-                <div>
-                    {{ quizCounter }}/10
-                </div>
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand uk-text-center">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">
-                            <div v-if="nameHidden">
-                                What's this ?
-                            </div>
-                            <div v-else>
-                                {{ correctAnswer.item_name }}
-                            </div>
-                        </h3>
-                        <p class="uk-text-meta uk-margin-remove">score: 100</p>
-                        <p class="uk-text-meta uk-margin-remove">total score: {{ totalScore }}</p>
-                    </div>
-                </div>
-
-                <progress id="js-progressbar" class="uk-progress" value="10" max="100"></progress>
-
+<section class="quiz">
+    <div class="explanation_board">
+        <div class="true_or_false_board">
+            <div class="float-right" v-bind:style="{ color: activeColor }">
+                {{ rightAndWrong }}
             </div>
-            <div class="uk-card-body">
-                <p>・Explanations</p>
-                <ul class="uk-list　uk-list-divider">
-                    <li v-for="(explanation, index) in correctAnswer.explanations" v-bind:key="index">
-                        {{ explanation.explanation }}
-                    </li>
-                </ul>
-                <button class="uk-button uk-button-primary uk-margin-remove-bottom uk-width-1-1 uk-margin-small-bottom">Add explanations</button>
-                <hr>
-                <div class="uk-child-width-1-2 uk-text-center uk-grid-small " uk-grid>
-                    <div>
-                        <button @click="answer(choice[0].id)" class="uk-button uk-button-default uk-width-1-1">
-                            {{ choice[0].item_name }}
-                        </button>
-                    </div>
-                  　<div>
-                        <button @click="answer(choice[1].id)" class="uk-button uk-button-default uk-width-1-1">
-                            {{ choice[1].item_name }}
-                        </button>
-                    </div>
-                </div>
-                <div class="uk-child-width-1-2 uk-text-center uk-grid-small" uk-grid>
-                    <div>
-                        <button @click="answer(choice[2].id)" class="uk-button uk-button-default uk-width-1-1">
-                            {{ choice[2].item_name }}
-                        </button>
-                    </div>
-                  　<div>
-                        <button @click="answer(choice[3].id)" class="uk-button uk-button-default uk-width-1-1">
-                            {{ choice[3].item_name }}
-                        </button>
-                    </div>
-                </div>
-            </div>
-
             <div>
-
+                {{ quizCounter }}/10
+            </div>
+        </div>
+        <h1>QUIZ</h1>
+        <h2>What`s this?</h2>
+        <p>
+            score: 100<br />
+            total score: 1000<br />
+        </p>
+        <div class="explanation_text">
+            <h2>Explanation</h2>
+            <br />
+            <ul>
+                <li v-for="(explanation, index) in correctAnswer.explanations" v-bind:key="index">
+                    {{ explanation.explanation }}
+                </li>
+            </ul>
+        </div>
+        <div class="answers-wrapper">
+            <div class="answers-box">
+                <button @click="answer(choice[0].id)" class="button">
+                    {{ choice[0].item_name }}
+                </button>
+            </div>
+            <div class="answers-box">
+                <button @click="answer(choice[0].id)" class="button">
+                    {{ choice[1].item_name }}
+                </button>
+            </div>
+            <div class="answers-box">
+                <button @click="answer(choice[0].id)" class="button">
+                    {{ choice[2].item_name }}
+                </button>
+            </div>
+            <div class="answers-box">
+                <button @click="answer(choice[0].id)" class="button">
+                    {{ choice[3].item_name }}
+                </button>
             </div>
         </div>
     </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -89,7 +61,7 @@ export default {
       choice: [],
       firstAnswer: true,
       rightAndWrong: true,
-      activeColor: "black",
+      activeColor: "white",
 
       quizCounter: 1,
       score: 100,
@@ -131,7 +103,7 @@ export default {
         setTimeout(() => {
           this.quizCounter += 1;
           this.indexItems10();
-          this.activeColor = "black";
+          this.activeColor = "white";
           this.firstAnswer = true;
           this.nameHidden = true;
           if ( this.quizCounter > 10 ) {

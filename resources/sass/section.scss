@@ -1,4 +1,98 @@
 section {
+  &.quiz {
+    h1 {
+      color: #fff;
+
+      &::before, &::after {
+        border-bottom: 1px solid #fff;
+      }
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .true_or_false_board {
+      text-align: start;
+      margin: 0 auto;
+      padding-top: 5px;
+      width: 80%;
+
+      .float-right {
+        float: right;
+      }
+    }
+
+    .explanation_board {
+      width: 80%;
+      margin: 0 auto ;
+      margin-bottom: 50px;
+      border: solid 1px #fff;
+
+      .explanation_text {
+        text-align: left;
+        padding: 0 50px;
+      }
+    }
+
+    .answers-wrapper {
+      display: table; // table要素を利用できる 要素を高さを揃えて横に並べたりできる
+      width: 100%;
+      table-layout: fixed; // 各要素の横幅を均等に
+      margin-bottom: 50px;
+    }
+
+    .answers-box {
+      display: table-cell; // tableの子要素
+    }
+
+    .button {
+      display: inline-block;
+      width: 200px;
+      margin: 5px;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: rgba(111, 134, 214, 0.5);
+      color: #fff;
+      text-decoration: none; // リンクの下線が表示されなくなる
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    @media (max-width: 960px) {
+      h1 {
+        font-size: 2.5rem;
+        margin: 10px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin: 10px;
+      }
+
+      .explanation_board {
+        width: 95%;
+
+        .explanation_text {
+          padding: 0 20px;
+        }
+
+        .answers-box {
+          display: inline-block;; // tableの子要素
+        }
+      }
+
+      .button {
+        width: 150px;
+        margin: 5px;
+      }
+    }
+  }
+
   h1 {
     display: inline-block; // 線が文字の幅以上に広がらないように
     position: relative;
@@ -18,6 +112,72 @@ section {
 
     &::before {
       bottom: 5px;
+    }
+  }
+
+  &.contact {
+    padding: 80px 0 150px;
+
+    h1 {
+      color: #fff;
+    }
+
+    .contact-form {
+      width: 50%;
+      margin: 50px auto 0;
+
+      input[type=text],
+      textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 15px;
+        outline: none; // 青いハイライトが消える
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.05);
+        color: #fff;
+      }
+
+      textarea {
+        height: 150px;
+
+        &:focus {
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset; // insetで内側へ影
+        }
+      }
+
+      input[type=submit] {
+        display: block;
+        width: 200px;
+        margin: 40px auto 0;
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 5px;
+        background-color: transparent; // 背景色を透明に
+        color: rgba(255, 255, 255, 1);
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &:focus {
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+        }
+      }
+    }
+
+    @media (max-width: 720px) {
+      padding-bottom: 80px;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .contact-form {
+        width: 80%
+      }
     }
   }
 
@@ -57,6 +217,10 @@ section {
       &::before, &::after {
         border-bottom: 1px solid #fff;
       }
+    }
+
+    h2 {
+      font-size: 2.5rem;
     }
 
     .works-wrapper {
@@ -150,6 +314,10 @@ section {
     }
 
     @media (max-width: 720px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
       p {
         margin: 0;
       }
@@ -227,6 +395,10 @@ section {
 
     @media (max-width: 720px) {
       padding-bottom: 80px;
+
+      h1 {
+        font-size: 2.5rem;
+      }
 
       .contact-form {
         width: 80%
