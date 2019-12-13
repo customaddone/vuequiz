@@ -1843,13 +1843,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       items: [],
       addItemName: "",
+      showButton: -1,
       explanations: [],
-      addExplanationData: ""
+      addExplanationData: "",
+      isModalActive: false,
+      isNewExpModalActive: false
     };
   },
   mounted: function mounted() {
@@ -1933,6 +1994,8 @@ __webpack_require__.r(__webpack_exports__);
         _this7.indexItems();
 
         _this7.addExplanationData = "";
+
+        _this7.newExpToggleModal();
       })["catch"](function (response) {
         console.log(response);
       });
@@ -1944,6 +2007,8 @@ __webpack_require__.r(__webpack_exports__);
         explanation: explanation
       }).then(function (response) {
         _this8.indexItems();
+
+        _this8.toggleModalClose();
       })["catch"](function (response) {
         console.log(response);
       });
@@ -1953,9 +2018,28 @@ __webpack_require__.r(__webpack_exports__);
 
       axios["delete"]('/api/explanations/' + id).then(function () {
         _this9.indexItems();
+
+        _this9.toggleModalClose();
       })["catch"](function (response) {
         console.log(response);
       });
+    },
+    // toggleはこれが一番スマートだと思
+    showExplanationsButton: function showExplanationsButton(index) {
+      if (this.showButton == index) {
+        this.showButton = -1;
+      } else {
+        this.showButton = index;
+      }
+    },
+    toggleModal: function toggleModal() {
+      this.isModalActive = !this.isModalActive;
+    },
+    toggleModalClose: function toggleModalClose() {
+      this.isModalActive = !this.isModalActive;
+    },
+    newExpToggleModal: function newExpToggleModal() {
+      this.isNewExpModalActive = !this.isNewExpModalActive;
     }
   }
 });
@@ -37210,7 +37294,270 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "add_items" })
+  return _c("section", { staticClass: "add-items" }, [
+    _c("h1", [_vm._v("ADD ITEMS")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.addItemName,
+            expression: "addItemName"
+          }
+        ],
+        attrs: {
+          type: "text",
+          name: "add_value",
+          placeholder: "ADD NEW ITEMS"
+        },
+        domProps: { value: _vm.addItemName },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.addItemName = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "button",
+          attrs: { name: "add_button" },
+          on: { click: _vm.addItem }
+        },
+        [_vm._v("ADD")]
+      ),
+      _vm._v(" "),
+      _c("p", [_vm._v("ITEMS LIST")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "items-list" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.items, function(item, index) {
+            return _c("li", { key: index }, [
+              _c("p", { staticClass: "item-title" }, [
+                _vm._v(_vm._s(item.item_name))
+              ]),
+              _vm._v(" "),
+              _c("i", {
+                staticClass: "fa fa-trash-o ",
+                attrs: { dusk: "trash" },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteItem(item.id)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("i", {
+                staticClass: "fa fa-edit",
+                attrs: { dusk: "edit" },
+                on: {
+                  click: function($event) {
+                    return _vm.showExplanationsButton(index)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm.showButton == index
+                ? _c(
+                    "div",
+                    [
+                      _c("p", { staticClass: "item-title" }, [
+                        _vm._v("Explanation")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "new-explanation",
+                          on: { click: _vm.newExpToggleModal }
+                        },
+                        [_vm._v("new exp")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "p-modal",
+                          class: { "is-open": _vm.isNewExpModalActive }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-mask" }, [
+                            _c("div", { staticClass: "modal-main" }, [
+                              _c("div", { staticClass: "modal-title" }, [
+                                _c("i", {
+                                  staticClass: "fa fa-times-circle-o",
+                                  on: { click: _vm.newExpToggleModal }
+                                }),
+                                _vm._v(" "),
+                                _c("h3", [_vm._v("new explanation")])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "modal-input" }, [
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.addExplanationData,
+                                      expression: "addExplanationData"
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    name: "add_explanation"
+                                  },
+                                  domProps: { value: _vm.addExplanationData },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.addExplanationData =
+                                        $event.target.value
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "button",
+                                    attrs: { name: "add_explanation_button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.addExplanation(item.id)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("New")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "modal-footer" })
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(item.explanations, function(explanation, index) {
+                        return _c("div", { key: index }, [
+                          _c(
+                            "p",
+                            {
+                              staticClass: "p-modalBtn",
+                              on: { click: _vm.toggleModal }
+                            },
+                            [_vm._v(_vm._s(explanation.explanation))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "p-modal",
+                              class: { "is-open": _vm.isModalActive }
+                            },
+                            [
+                              _c("div", { staticClass: "modal-mask" }, [
+                                _c("div", { staticClass: "modal-main" }, [
+                                  _c("div", { staticClass: "modal-title" }, [
+                                    _c("i", {
+                                      staticClass: "fa fa-times-circle-o",
+                                      on: { click: _vm.toggleModalClose }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("h3", [_vm._v("edit explanation")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "modal-input" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: explanation.explanation,
+                                          expression: "explanation.explanation"
+                                        }
+                                      ],
+                                      attrs: {
+                                        type: "text",
+                                        name: "editvalue"
+                                      },
+                                      domProps: {
+                                        value: explanation.explanation
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            explanation,
+                                            "explanation",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "button",
+                                        attrs: { name: "editbutton" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.editExplanation(
+                                              explanation.id,
+                                              explanation.explanation
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Add")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "button",
+                                        attrs: { dusk: "trash_explanation" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteExplanation(
+                                              explanation.id
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Delete")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "modal-footer" })
+                                ])
+                              ])
+                            ]
+                          )
+                        ])
+                      })
+                    ],
+                    2
+                  )
+                : _vm._e()
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

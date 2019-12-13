@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 header {
   width: 100%;
   padding: 0 0 10px;
@@ -137,6 +139,15 @@ section.mainpage .button-showy {
   }
 }
 
+section {
+  /* クイズ画面 */
+  /* アイテム追加画面 */
+}
+
+section.quiz {
+  /* 1/10 true等の部分 */
+}
+
 section.quiz h1 {
   color: #fff;
 }
@@ -253,25 +264,26 @@ section h1::before {
   bottom: 5px;
 }
 
-section.contact {
-  padding: 80px 0 150px;
+section.add-items {
+  padding: 0 0 150px;
+  /* モーダル */
 }
 
-section.contact h1 {
+section.add-items h1 {
   color: #fff;
 }
 
-section.contact .contact-form {
+section.add-items .input-form {
   width: 50%;
   margin: 50px auto 0;
 }
 
-section.contact .contact-form input[type=text],
-section.contact .contact-form textarea {
-  display: block;
-  width: 100%;
+section.add-items .input-form input[type=text],
+section.add-items .input-form textarea {
+  display: inline-block;
   margin-bottom: 10px;
-  padding: 15px;
+  width: 75%;
+  padding: 17px;
   outline: none;
   border: 1px solid white;
   border-radius: 0;
@@ -279,44 +291,190 @@ section.contact .contact-form textarea {
   color: #fff;
 }
 
-section.contact .contact-form textarea {
-  height: 150px;
-}
-
-section.contact .contact-form textarea:focus {
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
-}
-
-section.contact .contact-form input[type=submit] {
-  display: block;
-  width: 200px;
-  margin: 40px auto 0;
-  padding: 15px;
+section.add-items .input-form .items-list {
   border: 1px solid white;
-  border-radius: 5px;
-  background-color: transparent;
-  color: white;
-  cursor: pointer;
 }
 
-section.contact .contact-form input[type=submit]:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+section.add-items .input-form .items-list ul {
+  list-style: none;
+  padding: 0;
 }
 
-section.contact .contact-form input[type=submit]:focus {
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+section.add-items .input-form .items-list ul li {
+  padding-top: 10px;
+  margin: auto;
+  width: 90%;
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+
+section.add-items .input-form .items-list ul li p {
+  margin: 5px 15px;
+}
+
+section.add-items .input-form .items-list ul li p.item-title {
+  font-size: 2rem;
+  display: inline-block;
+}
+
+section.add-items .input-form .items-list ul li i {
+  float: right;
+  margin-left: 20px;
+  font-size: 2rem;
+}
+
+section.add-items .input-form .items-list ul li .new-explanation {
+  display: inline-block;
+}
+
+section.add-items .p-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+section.add-items .p-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
+}
+
+section.add-items .p-modal.is-open .modal-mask {
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-main {
+  width: 450px;
+  height: 300px;
+  padding: 0;
+  background-color: #fff;
+  color: #666;
+  box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.4);
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-main p {
+  color: #333;
 }
 
 @media (max-width: 720px) {
-  section.contact {
+  section.add-items .p-modal.is-open .modal-mask .modal-main {
+    width: 90%;
+  }
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-title {
+  height: 20%;
+  background: -webkit-gradient(linear, left top, right top, from(#84fab0), to(#8fd3f4));
+  background: linear-gradient(to right, #84fab0, #8fd3f4);
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.05);
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-title h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0px;
+  padding: 15px 0px 0px 30px;
+}
+
+@media (max-width: 720px) {
+  section.add-items .p-modal.is-open .modal-mask .modal-title h3 {
+    padding: 15px 0px 0px 20px;
+  }
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-title i {
+  float: right;
+  color: #fff;
+  font-size: 3rem;
+  padding: 15px 30px 0px 0px;
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-input {
+  height: 75%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-input textarea {
+  border: 1px solid #ccc;
+  color: #333;
+  width: 100%;
+  height: 60%;
+  margin-top: 20px;
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-input button {
+  width: 200px;
+  background-color: #8fd3f4;
+}
+
+@media (max-width: 720px) {
+  section.add-items .p-modal.is-open .modal-mask .modal-input button {
+    width: 49%;
+  }
+}
+
+section.add-items .p-modal.is-open .modal-mask .modal-footer {
+  height: 5%;
+  background: -webkit-gradient(linear, left top, right top, from(#84fab0), to(#8fd3f4));
+  background: linear-gradient(to right, #84fab0, #8fd3f4);
+}
+
+section.add-items .p-modal .modal-main {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  color: #666;
+}
+
+section.add-items .button {
+  display: inline-block;
+  width: 50px;
+  padding: 18px 10px;
+  border-radius: 4px;
+  background-color: rgba(111, 134, 214, 0.5);
+  border: 1px solid white;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+section.add-items .button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 720px) {
+  section.add-items {
     padding-bottom: 80px;
   }
 
-  section.contact h1 {
+  section.add-items h1 {
     font-size: 2.5rem;
   }
 
-  section.contact .contact-form {
+  section.add-items .input-form {
     width: 80%;
   }
 }
