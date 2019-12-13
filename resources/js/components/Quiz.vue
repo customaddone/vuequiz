@@ -12,12 +12,11 @@
         <h1>QUIZ</h1>
         <h2>What`s this?</h2>
         <p>
-            score: 100<br />
-            total score: 1000<br />
+            score: {{ score }}<br />
+            total score: {{ totalScore }}<br />
         </p>
         <div class="explanation_text">
             <h2>Explanation</h2>
-            <br />
             <ul>
                 <li v-for="(explanation, index) in correctAnswer.explanations" v-bind:key="index">
                     {{ explanation.explanation }}

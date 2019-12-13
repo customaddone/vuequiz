@@ -16,7 +16,7 @@
             </form>
         @endauth
         <div class="login-user">
-            <p>User: john</p>
+            <p>User: {{ Auth::user()->name }}</p>
         </div>
     </div>
 </header>

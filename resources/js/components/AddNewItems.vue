@@ -33,8 +33,8 @@
                                 </div>
                             </div>
                             <div v-for="(explanation, index) in item.explanations" v-bind:key="index">
-                                <p　class="p-modalBtn" @click="toggleModal">{{ explanation.explanation }}</p>
-                                <div class="p-modal" :class="{'is-open': isModalActive}">
+                                <p　class="p-modalBtn" @click="toggleModal(index)">{{ explanation.explanation }}</p>
+                                <div class="p-modal" :class="{ 'is-open': isModalActive == index }">
                                     <div class="modal-mask">
                                         <div class="modal-main">
                                             <div class="modal-title">
@@ -71,7 +71,7 @@ export default {
       showButton: -1,
       explanations: [],
       addExplanationData: "",
-      isModalActive: false,
+      isModalActive: -1,
       isNewExpModalActive: false,
     }
   },
@@ -185,12 +185,12 @@ export default {
       }
     },
 
-    toggleModal() {
-      this.isModalActive = !this.isModalActive;
+    toggleModal(index) {
+      this.isModalActive = index;
     },
 
     toggleModalClose() {
-      this.isModalActive = !this.isModalActive;
+      this.isModalActive = -1;
     },
 
     newExpToggleModal() {

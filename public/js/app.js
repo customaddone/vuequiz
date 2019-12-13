@@ -1909,7 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
       showButton: -1,
       explanations: [],
       addExplanationData: "",
-      isModalActive: false,
+      isModalActive: -1,
       isNewExpModalActive: false
     };
   },
@@ -2032,11 +2032,11 @@ __webpack_require__.r(__webpack_exports__);
         this.showButton = index;
       }
     },
-    toggleModal: function toggleModal() {
-      this.isModalActive = !this.isModalActive;
+    toggleModal: function toggleModal(index) {
+      this.isModalActive = index;
     },
     toggleModalClose: function toggleModalClose() {
-      this.isModalActive = !this.isModalActive;
+      this.isModalActive = -1;
     },
     newExpToggleModal: function newExpToggleModal() {
       this.isNewExpModalActive = !this.isNewExpModalActive;
@@ -2055,7 +2055,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -37452,7 +37451,11 @@ var render = function() {
                             "p",
                             {
                               staticClass: "p-modalBtn",
-                              on: { click: _vm.toggleModal }
+                              on: {
+                                click: function($event) {
+                                  return _vm.toggleModal(index)
+                                }
+                              }
                             },
                             [_vm._v(_vm._s(explanation.explanation))]
                           ),
@@ -37461,7 +37464,7 @@ var render = function() {
                             "div",
                             {
                               staticClass: "p-modal",
-                              class: { "is-open": _vm.isModalActive }
+                              class: { "is-open": _vm.isModalActive == index }
                             },
                             [
                               _c("div", { staticClass: "modal-mask" }, [
@@ -37661,12 +37664,15 @@ var render = function() {
       _vm._v(" "),
       _c("h2", [_vm._v("What`s this?")]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("p", [
+        _vm._v("\n            score: " + _vm._s(_vm.score)),
+        _c("br"),
+        _vm._v("\n            total score: " + _vm._s(_vm.totalScore)),
+        _c("br")
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "explanation_text" }, [
         _c("h2", [_vm._v("Explanation")]),
-        _vm._v(" "),
-        _c("br"),
         _vm._v(" "),
         _c(
           "ul",
@@ -37771,19 +37777,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v("\n            score: 100"),
-      _c("br"),
-      _vm._v("\n            total score: 1000"),
-      _c("br")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37808,7 +37802,9 @@ var render = function() {
   return _c("section", { staticClass: "quiz" }, [
     _c("h1", [_vm._v("Result")]),
     _vm._v(" "),
-    _c("p", [_vm._v("Your score is " + _vm._s(_vm.$route.params.totalScore))]),
+    _c("br"),
+    _vm._v(" "),
+    _c("h2", [_vm._v("Your score is " + _vm._s(_vm.$route.params.totalScore))]),
     _vm._v(" "),
     _c(
       "div",
