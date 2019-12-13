@@ -16,7 +16,12 @@
             </form>
         @endauth
         <div class="login-user">
+            @guest
+            <p>guest</p>
+            @endguest
+            @auth
             <p>User: {{ Auth::user()->name }}</p>
+            @endauth
         </div>
     </div>
 </header>
