@@ -21,12 +21,7 @@ jobs:
         - DB_DATABASE=circleci
         - DB_USERNAME=circleci
         - DB_PASSWORD=circleci
-      - image: circleci/mysql:5.7
-        environment:
-        - MYSQL_ROOT_PASSWORD=circleci
-        - MYSQL_DATABASE=circleci
-        - MYSQL_USER=circleci
-        - MYSQL_PASSWORD=circleci
+    
       - image: circleci/node:7.10-browsers
       - image: selenium/standalone-chrome
 
@@ -44,13 +39,21 @@ jobs:
       #
       # - image: redis:2.8.19
     steps:
-      # checkout: CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
       - checkout
       - setup_remote_docker
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
       - run: sudo docker-php-ext-install pdo_mysql
+      - run:
+          name: run selenium
+          command: docker run -d -p 4444:4444 selenium/standalone-chrome
+      # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
+      - run: composer install -n --prefer-dist
+      - run:
+          name: install-npm
+          command: npm install
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -72,16 +75,7 @@ jobs:
           key: node-v1-{{ checksum "package.json" }}
           paths:
             - node_modules
-  test:
-    steps:
-      - run:
-          name: run selenium
-          command: docker run -d -p 4444:4444 selenium/standalone-chrome
-      # composer.jsonで  "laravel/dusk"を"dont-discover"に書く
-      - run: composer install -n --prefer-dist
-      - run:
-          name: install-npm
-          command: npm install
+
       # prepare the database
       - run: php artisan migrate --force
 
