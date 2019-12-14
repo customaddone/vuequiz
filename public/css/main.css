@@ -57,7 +57,7 @@ header .login-form .login-user {
 }
 
 section.mainpage {
-  padding: 170px 30px 80px;
+  padding: 15px 30px 80px;
 }
 
 section.mainpage h1 {
@@ -111,7 +111,7 @@ section.mainpage .button-showy {
 
 @media (max-width: 720px) {
   section.mainpage {
-    padding-top: 60px;
+    padding-top: 10px;
   }
 
   section.mainpage h1 {
