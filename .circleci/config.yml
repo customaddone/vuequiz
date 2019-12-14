@@ -21,7 +21,12 @@ jobs:
         - DB_DATABASE=circleci
         - DB_USERNAME=circleci
         - DB_PASSWORD=circleci
-    
+      - image: circleci/mysql:5.7
+        environment:s
+        - MYSQL_ROOT_PASSWORD=circleci
+        - MYSQL_DATABASE=circleci
+        - MYSQL_USER=circleci
+        - MYSQL_PASSWORD=circleci
       - image: circleci/node:7.10-browsers
       - image: selenium/standalone-chrome
 
@@ -83,3 +88,13 @@ jobs:
       #- run: ./vendor/bin/phpunit
       - run: ./vendor/bin/phpunit
       - run: php artisan dusk
+
+      - run:
+          name: Install awsebcli
+          command: |
+            apt-get -y -qq upgrade
+            apt-get install python-pip python-dev build-essential
+            pip install awsebcli --upgrade
+      - run:
+          name: eb deploy
+          command: eb deploy vuequiz
