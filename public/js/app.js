@@ -37621,7 +37621,7 @@ var render = function() {
   return _c("section", { staticClass: "mainpage" }, [
     _c("p", { staticClass: "sub" }, [_vm._v("beginner engineer's portfolio")]),
     _vm._v(" "),
-    _c("h1", [_vm._v("Sample 4 choice quiz")]),
+    _c("h1", [_vm._v("4 choice quiz")]),
     _vm._v(" "),
     _c("p", { staticClass: "description" }, [
       _vm._v("Check out some of my works.")
