@@ -86,5 +86,9 @@ jobs:
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
+      
+      # sshでec2インスタンス内に入って
+      # git fetch origin masterとgit reset --hard origin/masterしとけば
+      # awsで上げたアプリの中身は更新される　自動化したいなぁ
       - run: ./vendor/bin/phpunit
       - run: php artisan dusk
