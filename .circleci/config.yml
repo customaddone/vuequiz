@@ -22,7 +22,7 @@ jobs:
         - DB_USERNAME=circleci
         - DB_PASSWORD=circleci
       - image: circleci/mysql:5.7
-        environment:s
+        environment:
         - MYSQL_ROOT_PASSWORD=circleci
         - MYSQL_DATABASE=circleci
         - MYSQL_USER=circleci
