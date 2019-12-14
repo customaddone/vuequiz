@@ -11,16 +11,16 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <section class="about" id="about">
-        <h1>ABOUT ME</h2>
+        <h1>Explanation</h2>
         <p>
-            クイズ (quiz) の英語での意味は、「（何か）質問すること」と 「知識をテストすること」
-           と、これらの名詞としての意味であり、日本語では後者の「知識を問う問題」の意味で使われ
-           ている。テレビ番組で、出題者が既知の事実に対して質問をし、解答者がその質問に答えると
-           いう遊び、あるいはその質問の意で使われることが多い。英語のquizがそのままカタカナ語として使われている。
+            ①SPA対応アプリの作成　②PHPUnit、Laravel duskを用いた単体テスト、E2Eテスト　③CircleCIを用いた自動テスト　④AWS EC2へのデプロイ
+           を練習するために簡単な四択クイズアプリを作りました。<br />
+           「Play Quiz」でクイズを開始します。Explanation（ヒント）を頼りに正解の択を選んでください。<br />
+           任意のユーザー名、メールアドレス、パスワード（架空のもので可能）でログイン後、「ADD ITEMS」でItem（問題となる択）、ヒントを作成できます。
         </p>
     </section>
     <section class="works">
-        <h1>WORKS</h1>
+        <h1>MY WORKS</h1>
         <div class="works-wrapper">
             <div class="work-box">
                 <p>
@@ -58,33 +58,37 @@
         </div>
     </section>
     <section class="skills">
-        <h1>MY SKILLS</h1>
+        <h1>SKILLS</h1>
         <div class="skill-wrapper">
             <div class="skill-box">
-                <i class="fa fa-lightbulb-o"></i>
-                <div class="skill-title">IDEA</div>
+                <i class="fa fa-cogs"></i>
+                <div class="skill-title">技術スタック</div>
                 <p>
-                    何かを考えることが好きです<br />
-                    新しいことを思いついては試しています<br />
-                    ディレクションの経験もあります<br />
+                    言語: PHP 7.3.9<br />
+                    フロントエンド:  Vue.js2.6.10<br />
+                    バックエンド: Laravel6.5.2<br />
+                    DB: MySQL5.7<br />
+                    テスト: PHPUnit,Laravel dusk<br />
+                    インフラ:Laradock/CircleCI/AWS（EC2）<br />
                 </p>
             </div>
             <div class="skill-box">
-                <i class="fa fa-paint-brush"></i>
-                <div class="skill-title">DESIGN</div>
+                <i class="fa fa-frown-o"></i>
+                <div class="skill-title">苦労した点</div>
                 <p>
-                    何かを考えることが好きです<br />
-                    新しいことを思いついては試しています<br />
-                    ディレクションの経験もあります<br />
+                    ・「AWSへのデプロイ、やることが多すぎる」<br />
+                    ・「テスト、インフラの勉強のためのアプリ作成だからアプリ本体は必要最小限に...と言いつつUIが少し気になるな。
+                    Sassにも慣れたいし少し手入れるか...　→　...デザイン難しい...」<br />
                 </p>
             </div>
             <div class="skill-box">
-                <i class="fa fa-code"></i>
-                <div class="skill-title">CODING</div>
+                <i class="fa fa-line-chart"></i>
+                <div class="skill-title">改善していく事項</div>
                 <p>
-                    何かを考えることが好きです<br />
-                    新しいことを思いついては試しています<br />
-                    ディレクションの経験もあります<br />
+                    ・制限時間を設ける、状況により一問当たりの得点を変化させるなどの機能を実装していく<br />
+                    ・機能を実装する際、テスト開発駆動の手法を意識する（そのためのテスト自動化）<br />
+                    ・テストコードをしっかり書く<br />
+                    ・CircleCIを用いた自動デプロイ機能を実装する<br />
                 </p>
             </div>
         </div>

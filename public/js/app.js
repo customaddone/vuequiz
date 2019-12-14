@@ -1901,6 +1901,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1913,9 +1930,10 @@ __webpack_require__.r(__webpack_exports__);
       isNewExpModalActive: false
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
+    // ログイン認証
     axios.get('/api/authUser').then(function (response) {
       if (!response.data) {
         alert('ログインしてください'); // AddNewItemsの画面が出る前にhomeに飛ばしたい
@@ -1975,51 +1993,42 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     // アイテムに対する説明の追加、編集、削除
-    indexExplanations: function indexExplanations() {
-      var _this6 = this;
-
-      axios.get('/api/explanations').then(function (response) {
-        _this6.explanations = response.data;
-      })["catch"](function (response) {
-        console.log(response);
-      });
-    },
     addExplanation: function addExplanation(item_id) {
-      var _this7 = this;
+      var _this6 = this;
 
       axios.post('/api/explanations', {
         item_id: item_id,
         explanation: this.addExplanationData
       }).then(function (response) {
-        _this7.indexItems();
+        _this6.indexItems();
 
-        _this7.addExplanationData = "";
+        _this6.addExplanationData = "";
 
-        _this7.newExpToggleModal();
+        _this6.newExpToggleModal();
       })["catch"](function (response) {
         console.log(response);
       });
     },
     editExplanation: function editExplanation(id, explanation) {
-      var _this8 = this;
+      var _this7 = this;
 
       axios.post('/api/explanations/' + id, {
         explanation: explanation
       }).then(function (response) {
-        _this8.indexItems();
+        _this7.indexItems();
 
-        _this8.toggleModalClose();
+        _this7.toggleModalClose();
       })["catch"](function (response) {
         console.log(response);
       });
     },
     deleteExplanation: function deleteExplanation(id) {
-      var _this9 = this;
+      var _this8 = this;
 
       axios["delete"]('/api/explanations/' + id).then(function () {
-        _this9.indexItems();
+        _this8.indexItems();
 
-        _this9.toggleModalClose();
+        _this8.toggleModalClose();
       })["catch"](function (response) {
         console.log(response);
       });
@@ -2106,6 +2115,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2121,10 +2139,12 @@ __webpack_require__.r(__webpack_exports__);
       totalScore: 0
     };
   },
+  // ページ表示時に問題を取得する
   mounted: function mounted() {
     this.indexItems10();
   },
   methods: {
+    // ページ表示時に問題を取得する
     indexItems10: function indexItems10() {
       var _this = this;
 
@@ -2136,6 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       });
     },
+    // 解答を受け、正誤をチェックする
     answer: function answer(_answer) {
       var _this2 = this;
 
@@ -37558,7 +37579,20 @@ var render = function() {
           }),
           0
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "return-home" },
+        [
+          _c("router-link", { attrs: { to: "/quiz" } }, [_vm._v("Play Quiz")]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")])
+        ],
+        1
+      )
     ])
   ])
 }
@@ -37585,9 +37619,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "mainpage" }, [
-    _c("p", { staticClass: "sub" }, [_vm._v("Web designer's portfolio")]),
+    _c("p", { staticClass: "sub" }, [_vm._v("beginner engineer's portfolio")]),
     _vm._v(" "),
-    _c("h1", [_vm._v("HI, MY NAME IS...")]),
+    _c("h1", [_vm._v("Sample 4 choice quiz")]),
     _vm._v(" "),
     _c("p", { staticClass: "description" }, [
       _vm._v("Check out some of my works.")

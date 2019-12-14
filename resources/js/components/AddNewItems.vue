@@ -2,14 +2,19 @@
     <section class="add-items">
         <h1>ADD ITEMS</h1>
         <div class="input-form">
+            <!-- 四択の択を作成 -->
             <input type="text" name="add_value" v-model="addItemName" placeholder="ADD NEW ITEMS">
             <button name="add_button" @click="addItem" class="button">ADD</button>
             <p>ITEMS LIST</p>
             <div class="items-list">
                 <ul>
+
+                    <!-- 四択の択を一覧表示 -->
                     <li　v-for="(item, index) in items" v-bind:key="index">
                         <p class="item-title">{{ item.item_name }}</p>
                         <i dusk="trash" @click="deleteItem(item.id)" class="fa fa-trash-o "></i>
+
+                        <!-- explanation表示、編集 -->
                         <i dusk="edit" @click="showExplanationsButton(index)" class="fa fa-edit"></i>
                         <div v-if="showButton == index">
                             <p class="item-title">Explanation</p>
@@ -32,8 +37,11 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div v-for="(explanation, index) in item.explanations" v-bind:key="index">
                                 <p　class="p-modalBtn" @click="toggleModal(index)">{{ explanation.explanation }}</p>
+
+                                <!-- explanation編集、削除時のmodal -->
                                 <div class="p-modal" :class="{ 'is-open': isModalActive == index }">
                                     <div class="modal-mask">
                                         <div class="modal-main">
@@ -52,11 +60,20 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </li>
+
                 </ul>
             </div>
+
+            <br />
+            <div class="return-home">
+                <router-link to="/quiz">Play Quiz</router-link>
+                <router-link to="/">Home</router-link>
+            </div>
+            
         </div>
     </section>
 </template>
@@ -76,7 +93,8 @@ export default {
     }
   },
 
-  mounted: function () {
+  created: function () {
+    // ログイン認証
     axios.get('/api/authUser'
     ).then((response) => {
       if  (!response.data) {
@@ -133,14 +151,6 @@ export default {
     },
 
     // アイテムに対する説明の追加、編集、削除
-    indexExplanations: function () {
-      axios.get('/api/explanations'
-      ).then((response) => {
-        this.explanations = response.data;
-      }).catch((response) => {
-         console.log(response);
-      })
-    },
 
     addExplanation: function (item_id) {
       axios.post('/api/explanations',{

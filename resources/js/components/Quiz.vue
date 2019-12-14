@@ -1,6 +1,8 @@
 <template>
 <section class="quiz">
     <div class="explanation_board">
+
+        <!-- 現在何問目か、正誤判定 -->
         <div class="true_or_false_board">
             <div class="float-right" v-bind:style="{ color: activeColor }">
                 {{ rightAndWrong }}
@@ -9,12 +11,16 @@
                 {{ quizCounter }}/10
             </div>
         </div>
+
+        <!-- 問題、スコア表示 -->
         <h1>QUIZ</h1>
         <h2>What`s this?</h2>
         <p>
             score: {{ score }}<br />
             total score: {{ totalScore }}<br />
         </p>
+
+        <!-- ヒント表示 -->
         <div class="explanation_text">
             <h2>Explanation</h2>
             <ul>
@@ -23,6 +29,8 @@
                 </li>
             </ul>
         </div>
+
+        <!-- 解答欄 -->
         <div class="answers-wrapper">
             <div class="answers-box">
                 <button @click="answer(choice[0].id)" class="button">
@@ -45,6 +53,7 @@
                 </button>
             </div>
         </div>
+
     </div>
 </section>
 </template>
@@ -68,11 +77,13 @@ export default {
     }
   },
 
+  // ページ表示時に問題を取得する
   mounted: function () {
     this.indexItems10();
   },
 
   methods : {
+    // ページ表示時に問題を取得する
     indexItems10: function () {
       axios.get('/api/items/items10'
       ).then((response) => {
@@ -84,6 +95,7 @@ export default {
       })
     },
 
+    // 解答を受け、正誤をチェックする
     answer: function (answer) {
       if (this.firstAnswer && this.quizCounter < 11) {
         // 回答直後の処理

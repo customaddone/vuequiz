@@ -52,7 +52,7 @@ header .login-form .login-user {
   }
 
   header .login-form .login-user {
-    padding: 18px 25px 0 0;
+    padding: 15px 25px 0 0;
   }
 }
 
@@ -477,6 +477,12 @@ section.add-items .button:hover {
   section.add-items .input-form {
     width: 80%;
   }
+}
+
+section.add-items .return-home a {
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
 }
 
 section.about {

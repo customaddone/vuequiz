@@ -1,5 +1,6 @@
 <template>
 <section class="quiz">
+    <!-- リザルト画面　得点表示 -->
     <h1>Result</h1>
     <br />
     <h2>Your score is {{ $route.params.totalScore }}</h2>

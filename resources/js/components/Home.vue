@@ -1,7 +1,8 @@
 <template>
 <section class="mainpage">
-      <p class="sub">Web designer's portfolio</p>
-      <h1>HI, MY NAME IS...</h1>
+      <!-- 一番最初の画面 -->
+      <p class="sub">beginner engineer's portfolio</p>
+      <h1>Sample 4 choice quiz</h1>
       <p class="description">Check out some of my works.</p>
       <div class="buttons">
           <router-link to="/quiz" class="button" href="#about">PLAY QUIZ</router-link>
