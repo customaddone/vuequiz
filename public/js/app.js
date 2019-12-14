@@ -37718,7 +37718,7 @@ var render = function() {
               staticClass: "button",
               on: {
                 click: function($event) {
-                  return _vm.answer(_vm.choice[0].id)
+                  return _vm.answer(_vm.choice[1].id)
                 }
               }
             },
@@ -37739,7 +37739,7 @@ var render = function() {
               staticClass: "button",
               on: {
                 click: function($event) {
-                  return _vm.answer(_vm.choice[0].id)
+                  return _vm.answer(_vm.choice[2].id)
                 }
               }
             },
@@ -37760,7 +37760,7 @@ var render = function() {
               staticClass: "button",
               on: {
                 click: function($event) {
-                  return _vm.answer(_vm.choice[0].id)
+                  return _vm.answer(_vm.choice[3].id)
                 }
               }
             },

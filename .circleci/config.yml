@@ -88,13 +88,3 @@ jobs:
       #- run: ./vendor/bin/phpunit
       - run: ./vendor/bin/phpunit
       - run: php artisan dusk
-
-      - run:
-          name: Install awsebcli
-          command: |
-            sudo apt-get -y -qq upgrade
-            sudo apt-get install python-pip python-dev build-essential
-            sudo pip install awsebcli --upgrade
-      - run:
-          name: eb deploy
-          command: eb init

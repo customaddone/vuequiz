@@ -30,17 +30,17 @@
                 </button>
             </div>
             <div class="answers-box">
-                <button @click="answer(choice[0].id)" class="button">
+                <button @click="answer(choice[1].id)" class="button">
                     {{ choice[1].item_name }}
                 </button>
             </div>
             <div class="answers-box">
-                <button @click="answer(choice[0].id)" class="button">
+                <button @click="answer(choice[2].id)" class="button">
                     {{ choice[2].item_name }}
                 </button>
             </div>
             <div class="answers-box">
-                <button @click="answer(choice[0].id)" class="button">
+                <button @click="answer(choice[3].id)" class="button">
                     {{ choice[3].item_name }}
                 </button>
             </div>
