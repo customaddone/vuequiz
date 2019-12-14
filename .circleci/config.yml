@@ -97,4 +97,4 @@ jobs:
             sudo pip install awsebcli --upgrade
       - run:
           name: eb deploy
-          command: eb deploy vuequiz
+          command: eb init
